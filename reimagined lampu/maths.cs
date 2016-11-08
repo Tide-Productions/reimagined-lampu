@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace reimagined_lampu
 {
-    class maths
+    class Maths
     {
 
         public static void polarCoordinates(Vector2 position, Vector2 spawnPosition, double angle, double radius)
