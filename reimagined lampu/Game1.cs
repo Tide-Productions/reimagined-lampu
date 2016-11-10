@@ -13,6 +13,7 @@ namespace reimagined_lampu
         SpriteBatch spriteBatch;
         Player player;
         Texture2D overlay;
+        bool releasedFsT;
 
         public Game1()
         {
@@ -45,6 +46,7 @@ namespace reimagined_lampu
             spriteBatch = new SpriteBatch(GraphicsDevice);
             player = new reimagined_lampu.Player(Content.Load<Texture2D>("player"), new Vector2(600, 950), 5.0f);
             overlay = Content.Load<Texture2D>("overlay");
+            releasedFsT = true;
             // TODO: use this.Content to load your game content here
         }
 
@@ -68,8 +70,13 @@ namespace reimagined_lampu
                 Exit();
             player.Update();
             // TODO: Add your update logic here
-            if (Keyboard.GetState().IsKeyDown(Keys.F11)) graphics.ToggleFullScreen();
 
+            if (Keyboard.GetState().IsKeyDown(Keys.F11) && releasedFsT)
+            {
+                releasedFsT = false;
+                graphics.ToggleFullScreen();
+            }
+            if (Keyboard.GetState().IsKeyUp(Keys.F11)) releasedFsT = true;
             base.Update(gameTime);
         }
 
