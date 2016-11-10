@@ -11,6 +11,10 @@ namespace reimagined_lampu
         float speed;        //Movementspeed
         float health;       //Playerhealth
         int death;          //deathcounter
+        int limitX1;        //Grenzen für Player
+        int limitX2;
+        int limitY1;
+        int limitY2;
 
         /// <summary>
         /// Initialize new Player
@@ -23,6 +27,10 @@ namespace reimagined_lampu
             this.texture = texture;
             this.position = position;
             this.speed = speed;
+            limitX1 = 330;
+            limitX2 = 1110;
+            limitY1 = 20;
+            limitY2 = 1060;
             health = 100;
             death = 0;
         }
@@ -46,10 +54,10 @@ namespace reimagined_lampu
             //Bewegung ausführen
             position += move;
 
-            if (position.X <= 330) position.X = 330;
-            if (position.X + texture.Width >= 1110) position.X = 1110 - texture.Width;
-            if (position.Y <= 20) position.Y = 20;
-            if (position.Y + texture.Height >= 1060) position.Y = 1060 - texture.Height;
+            if (position.X <= limitX1) position.X = limitX1;
+            if (position.X + texture.Width >= limitX2) position.X = limitX2 - texture.Width;
+            if (position.Y <= limitY1) position.Y = limitY1;
+            if (position.Y + texture.Height >= limitY2) position.Y = limitY2 - texture.Height;
 
         }
 
@@ -94,6 +102,7 @@ namespace reimagined_lampu
         {
             return texture;
         }
+
         /// <summary>
         /// Health des Players
         /// </summary>
@@ -101,6 +110,39 @@ namespace reimagined_lampu
         public float getHealth()
         {
             return health;
+        }
+
+        /// <summary>
+        /// Bewegungs-X-Grenzen neu setzen
+        /// </summary>
+        /// <param name="left">linke Grenze als Pixel</param>
+        /// <param name="right">rechte Grenze als Pixel</param>
+        public void setLimitX(int left, int right)
+        {
+            limitX1 = left;
+            limitX2 = right;
+        }
+
+        /// <summary>
+        /// Bewegungs-Y-Grenzen neu setzen
+        /// </summary>
+        /// <param name="top">obere Grenze als Pixel</param>
+        /// <param name="bottom">untere Grenze als Pixel</param>
+        public void setLimitY(int top, int bottom)
+        {
+            limitY1 = top;
+            limitY2 = bottom;
+        }
+
+        /// <summary>
+        /// Zurücksetzen der Bewegungsgrenzen zum Standart
+        /// </summary>
+        public void resetLimit()
+        {
+            limitX1 = 330;
+            limitX2 = 1110;
+            limitY1 = 20;
+            limitY2 = 1060;
         }
     }
 }
