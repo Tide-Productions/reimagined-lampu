@@ -11,10 +11,13 @@ namespace reimagined_lampu
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Player player;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            graphics.PreferredBackBufferWidth = 1920;
+            graphics.PreferredBackBufferHeight = 1080;
             Content.RootDirectory = "Content";
         }
 
@@ -39,7 +42,7 @@ namespace reimagined_lampu
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            player = new reimagined_lampu.Player(Content.Load<Texture2D>("player"), new Vector2(600, 950), 5.0f);
             // TODO: use this.Content to load your game content here
         }
 
@@ -61,8 +64,9 @@ namespace reimagined_lampu
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
+            player.Update();
             // TODO: Add your update logic here
+            if (Keyboard.GetState().IsKeyDown(Keys.F11)) graphics.ToggleFullScreen();
 
             base.Update(gameTime);
         }
@@ -74,7 +78,13 @@ namespace reimagined_lampu
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+            spriteBatch.Begin();
 
+            player.Draw(spriteBatch);
+
+
+            spriteBatch.Draw(Content.Load<Texture2D>("overlay"), new Vector2(0, 0), Color.White);
+            spriteBatch.End();
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
