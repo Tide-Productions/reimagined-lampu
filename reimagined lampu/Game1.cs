@@ -12,6 +12,7 @@ namespace reimagined_lampu
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Player player;
+        Texture2D overlay;
 
         public Game1()
         {
@@ -30,7 +31,7 @@ namespace reimagined_lampu
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            
             base.Initialize();
         }
 
@@ -43,6 +44,7 @@ namespace reimagined_lampu
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             player = new reimagined_lampu.Player(Content.Load<Texture2D>("player"), new Vector2(600, 950), 5.0f);
+            overlay = Content.Load<Texture2D>("overlay");
             // TODO: use this.Content to load your game content here
         }
 
@@ -83,7 +85,7 @@ namespace reimagined_lampu
             player.Draw(spriteBatch);
 
 
-            spriteBatch.Draw(Content.Load<Texture2D>("overlay"), new Vector2(0, 0), Color.White);
+            spriteBatch.Draw(overlay, new Vector2(0, 0), Color.White);
             spriteBatch.End();
             // TODO: Add your drawing code here
 

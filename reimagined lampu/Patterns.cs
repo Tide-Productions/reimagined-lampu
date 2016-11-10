@@ -11,26 +11,7 @@ namespace reimagined_lampu
 {
     class Patterns
     {
-       
-        int patternStyle;
-        Vector2 spawnPosition;
-        double radiusChange;
-        double angleChange;
-        double accel;
-
-
-
-
-        public Patterns(int patternStyle, Vector2 spawnPosition, double radiusChange, double angleChange, double accel)
-        {
-            this.patternStyle = patternStyle;
-            this.spawnPosition = spawnPosition;
-            this.radiusChange = radiusChange;
-            this.angleChange = angleChange;
-            this.accel = accel;
-        }
-
-
+      
         /// <summary>
         /// Patternzustand updaten
         /// </summary>
@@ -48,18 +29,17 @@ namespace reimagined_lampu
     {
         int PatternID;
         int typeOB;
-        float n;
+        int n;
         float accelerationOB;
         float startAngleOS;
         float angleChangeOB;
         float startSpeedOB;
         float angleChangeOS;
         int timer;
+        int interval;
 
 
-
-
-        public PolarPatterns(int PatternID, int typeOB, float numberOB, float accelerationOB, float startAngleOS, float angleChangeOB, float startSpeedOB, float angleChangeOS)
+        public PolarPatterns(int PatternID, int typeOB, int numberOB, int intervalOS, float accelerationOB, float startAngleOS, float angleChangeOB, float startSpeedOB, float angleChangeOS)
         {
             this.PatternID = PatternID;
             this.typeOB = typeOB;
@@ -69,10 +49,10 @@ namespace reimagined_lampu
             this.angleChangeOB = angleChangeOB;
             this.startSpeedOB = startSpeedOB;
             this.angleChangeOS = angleChangeOS;
-            Enemy[] testPattern = new Enemy[n];
+            interval = intervalOS;
         }
 
-        public PolarPatterns(int PatternID, int typeOB, float numberOB, float accelerationOB, float startAngleOS, float angleChangeOB, float startSpeedOB)
+        public PolarPatterns(int PatternID, int typeOB, int numberOB, int intervalOS, float accelerationOB, float startAngleOS, float angleChangeOB, float startSpeedOB)
         {
             this.PatternID = PatternID;
             this.typeOB = typeOB;
@@ -81,35 +61,27 @@ namespace reimagined_lampu
             this.startAngleOS = startAngleOS;
             this.angleChangeOB = angleChangeOB;
             this.startSpeedOB = startSpeedOB;
-            Enemy[] testPattern = new Enemy[n];
         }
 
         public new void Update()
         {
 
+            Enemy[] testPattern = new Enemy[n];
+
             if (timer % interval == 0)
             {
-                if (counter < n)
-                {
-                    for (int i = 0; i < anzahl; i++)
-                    {
-                        testPattern[counter + i] = new Enemy(enemyTexture, new Vector2(200, 100), speed, Convert.ToSingle(((counter + i) * Math.PI) / 180));
-                    }
 
-                    counter += anzahl;
-                    //speed = -speed;
+                for (int i = 0; i < n; i++)
+                {
+                    //testPattern[i] = new Enemy(Content.Load<Texture2D>("player"), new Vector2(200, 100), startSpeedOB, Convert.ToSingle(((360/n * Math.PI) / 180));
                 }
             }
 
 
-            for (int i = 0; i < counter; i++)
+            for (int i = 0; i < n; i++)
             {
                 testPattern[i].Update();
             }
-
-
-
-
 
             //tick counter
             timer++;
