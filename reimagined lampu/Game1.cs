@@ -82,6 +82,8 @@ namespace reimagined_lampu
 
             player.Draw(spriteBatch);
 
+
+            spriteBatch.Draw(Content.Load<Texture2D>("overlay"), new Vector2(0, 0), Color.White);
             spriteBatch.End();
             // TODO: Add your drawing code here
 
