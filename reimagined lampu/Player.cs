@@ -41,6 +41,26 @@ namespace reimagined_lampu
             if (key.IsKeyDown(Keys.Right) || key.IsKeyDown(Keys.D)) move.X += speed;
             if (key.IsKeyDown(Keys.Up) || key.IsKeyDown(Keys.W)) move.Y -= speed;
             if (key.IsKeyDown(Keys.Down) || key.IsKeyDown(Keys.S)) move.Y += speed;
+
+            if (position.X <= 250) {
+                position.X = 250;
+                move.X = 0;
+            }
+            if (position.X + texture.Width >= 1190)
+            {
+                position.X = 1190 - texture.Width;
+                move.X = 0;
+            }
+            if (position.Y <= 10) {
+                position.Y = 10;
+                move.Y = 0;
+            }
+            if (position.Y + texture.Height >= 1070)
+            {
+                position.Y = 1070 - texture.Height;
+                move.Y = 0;
+            }
+
             //Bewegung ausführen
             position += move;
         }
