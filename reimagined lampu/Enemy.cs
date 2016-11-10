@@ -18,6 +18,7 @@ namespace reimagined_lampu
         /// <param name="texture">Texture of the Player</param>
         /// <param name="position">Startposition</param>
         /// <param name="speed">Movementspeed</param>
+ 
         public Enemy(Texture2D texture, Vector2 position, float speed)
         {
             this.texture = texture;
