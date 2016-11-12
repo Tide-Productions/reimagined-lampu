@@ -28,9 +28,9 @@ namespace reimagined_lampu
             this.position = position;
             this.speed = speed;
             limitX1 = 330;
-            limitX2 = 1110;
-            limitY1 = 20;
-            limitY2 = 1060;
+            limitX2 = 1112;
+            limitY1 = 18;
+            limitY2 = 1061;
             health = 100;
             death = 0;
         }
