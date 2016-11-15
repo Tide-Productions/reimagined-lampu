@@ -39,6 +39,7 @@ namespace reimagined_lampu
         {
             // TODO: Add your initialization logic here
             test = new PolarPatterns(0, 1, 36, 0, 0, 0, 50, 100, new Vector2(300, 300), 8); 
+            GameStuff.Instance.arial = Content.Load<SpriteFont>("Arial");
             base.Initialize();
         }
 

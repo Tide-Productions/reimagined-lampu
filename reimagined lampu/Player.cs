@@ -11,7 +11,6 @@ namespace reimagined_lampu
         float speed;        //Movementspeed
         float health;       //Playerhealth
         int death;          //deathcounter
-        float limitX1, limitX2, limitY1, limitY2;        //Grenzen für Player
         float scale;
 
         /// <summary>
@@ -25,10 +24,6 @@ namespace reimagined_lampu
             this.texture = texture;
             this.position = position;
             this.speed = speed;
-            limitX1 = (float) 330/1920;
-            limitX2 = (float) 1112/1920;
-            limitY1 = (float) 18/1080;
-            limitY2 = (float) 1061/1080;
             health = 100;
             death = 0;
             scale = 0.12f;
@@ -52,12 +47,8 @@ namespace reimagined_lampu
 
             //Bewegung ausführen
             position += move;
-            /*
-            if (position.X <= limitX1) position.X = limitX1;
-            if (position.X + (texture.Width * scale) >= limitX2) position.X = limitX2 - (texture.Width * scale);
-            if (position.Y <= limitY1) position.Y = limitY1;
-            if (position.Y + (texture.Height * scale) >= limitY2) position.Y = limitY2 - (texture.Height * scale);
-            */
+            
+           
         }
 
         /// <summary>
@@ -67,6 +58,7 @@ namespace reimagined_lampu
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(texture, position, null, null, new Vector2(0,0), 0.0f, new Vector2((scale * GameStuff.Instance.grScale),(scale * GameStuff.Instance.grScale)), Color.White, 0f);
+            spriteBatch.DrawString(GameStuff.Instance.arial,"" + position.X,new Vector2(500,20),Color.White);
         }
 
         /// <summary>
