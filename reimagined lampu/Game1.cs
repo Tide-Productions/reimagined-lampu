@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -14,6 +18,8 @@ namespace reimagined_lampu
         SpriteBatch spriteBatch;
         Texture2D overlay;
         bool releasedFsT;
+        PolarPatterns test;
+        
 
         public Game1()
         {
@@ -32,7 +38,7 @@ namespace reimagined_lampu
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            
+            test = new PolarPatterns(0, 1, 36, 0, 0, 0, 50, 100, new Vector2(300, 300), 8); 
             base.Initialize();
         }
 
@@ -82,6 +88,8 @@ namespace reimagined_lampu
                 graphics.ToggleFullScreen();
             }
             if (Keyboard.GetState().IsKeyUp(Keys.F11)) releasedFsT = true;
+
+            test.Update();
             base.Update(gameTime);
         }
 
@@ -93,6 +101,8 @@ namespace reimagined_lampu
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
+
+            test.Draw(spriteBatch);
 
             GameStuff.Instance.player.Draw(spriteBatch);
 
