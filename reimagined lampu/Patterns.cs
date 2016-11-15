@@ -81,7 +81,7 @@ namespace reimagined_lampu
                 Pattern.Add(new PolarBullet(typeOB, startSpeedOB, angleChangeOB, accelerationOB, spawnPosition, angle));
                 counter++;
             }
-            else if ((counter <= n) && (counter == 0))
+            else if ((counter <= n) && (interval == 0))
             {
 
                 //create n new bullets at once
