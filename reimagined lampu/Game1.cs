@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -9,17 +10,16 @@ namespace reimagined_lampu
     /// </summary>
     public class Game1 : Game
     {
-        GraphicsDeviceManager graphics;
+        public GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Player player;
         Texture2D overlay;
         bool releasedFsT;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 1920;
-            graphics.PreferredBackBufferHeight = 1080;
+            graphics.PreferredBackBufferWidth = 1280;
+            graphics.PreferredBackBufferHeight = 720;
             Content.RootDirectory = "Content";
         }
 
@@ -44,8 +44,10 @@ namespace reimagined_lampu
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            player = new reimagined_lampu.Player(Content.Load<Texture2D>("player"), new Vector2(600, 950), 5.0f);
+            GameStuff.Instance.player = new reimagined_lampu.Player(Content.Load<Texture2D>("player"), new Vector2(600, 950), 5.0f);
             overlay = Content.Load<Texture2D>("overlay");
+            GameStuff.Instance.grScale = (float) 2/3;
+            GameStuff.Instance.fullscreen = false;
             releasedFsT = true;
             // TODO: use this.Content to load your game content here
         }
@@ -68,11 +70,12 @@ namespace reimagined_lampu
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-            player.Update();
+            GameStuff.Instance.player.Update();
             // TODO: Add your update logic here
 
             if (Keyboard.GetState().IsKeyDown(Keys.F11) && releasedFsT)
             {
+                GameStuff.toggleScreen(graphics);
                 releasedFsT = false;
                 graphics.ToggleFullScreen();
             }
@@ -89,10 +92,9 @@ namespace reimagined_lampu
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
 
-            player.Draw(spriteBatch);
+            GameStuff.Instance.player.Draw(spriteBatch);
 
-
-            spriteBatch.Draw(overlay, new Vector2(0, 0), Color.White);
+            spriteBatch.Draw(overlay, new Vector2(0, 0), null, null, new Vector2(0, 0), 0.0f, new Vector2(GameStuff.Instance.grScale, GameStuff.Instance.grScale), Color.White, 0f);
             spriteBatch.End();
             // TODO: Add your drawing code here
 

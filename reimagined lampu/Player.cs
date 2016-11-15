@@ -34,7 +34,7 @@ namespace reimagined_lampu
             limitY2 = 1061;
             health = 100;
             death = 0;
-            scale = 0.05f;
+            scale = 0.12f;
         }
 
         /// <summary>
@@ -57,10 +57,9 @@ namespace reimagined_lampu
             position += move;
 
             if (position.X <= limitX1) position.X = limitX1;
-            if (position.X + (texture.Width*scale) >= limitX2) position.X = limitX2 - (texture.Width*scale);
+            if (position.X + (texture.Width * scale) >= limitX2) position.X = limitX2 - (texture.Width * scale);
             if (position.Y <= limitY1) position.Y = limitY1;
-            if (position.Y + (texture.Height*scale) >= limitY2) position.Y = limitY2 - (texture.Height*scale);
-
+            if (position.Y + (texture.Height * scale) >= limitY2) position.Y = limitY2 - (texture.Height * scale);
         }
 
         /// <summary>
@@ -69,8 +68,7 @@ namespace reimagined_lampu
         /// <param name="spriteBatch">spriteBatch auf der gezeichnet wird</param>
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, position, null, null, new Vector2(0,0), 0.0f, new Vector2(0.05f,0.05f), Color.White, 0f);
-            //spriteBatch.Draw(texture, position, Color.White);
+            spriteBatch.Draw(texture, position, null, null, new Vector2(0,0), 0.0f, new Vector2((scale * GameStuff.Instance.grScale),(scale * GameStuff.Instance.grScale)), Color.White, 0f);
         }
 
         /// <summary>
