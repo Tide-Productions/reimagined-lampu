@@ -33,6 +33,7 @@ namespace reimagined_lampu
         private Vector2 centrePosition;
         private float radius;
         private float angle;
+        Vector2 position = new Vector2();
 
         //constructor
         public PolarBullet(int bulletType, float bulletSpeed, float bulletAngleChange, float bulletAcceleration, Vector2 bulletCentrePosition, float bulletStartAngle)
@@ -46,14 +47,35 @@ namespace reimagined_lampu
             radius = 0;
             angle = bulletStartAngle;
            
+            //bullet type settings
             switch (type)
             {
                 case 0:
                     texture = GameStuff.Instance.bulletTexture01;
+                    color = Color.White;
+                    break;
+                case 1:
+                    texture = GameStuff.Instance.bulletTexture02;
+                    color = Color.White;
                     break;
                 default:
                     break;
             }
+        }
+
+        //update
+        public void Update()
+        {
+            radius += speed/100f;
+            angle += angleChange/100f;
+            speed += acceleration/100f;
+            Maths.toCartesian(ref position, centrePosition, angle, radius);
+        }
+
+        //draw
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(texture, position, color);
         }
     }
 }
