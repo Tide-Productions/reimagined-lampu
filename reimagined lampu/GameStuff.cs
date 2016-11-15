@@ -42,6 +42,7 @@ namespace reimagined_lampu
                 graphics.PreferredBackBufferWidth = 1920;
                 graphics.PreferredBackBufferHeight = 1080;
                 Instance.grScale = 1f;
+                Instance.player.setPosition(new Vector2(Instance.player.getPosition().X,Instance.player.getPosition().Y));
                 graphics.ApplyChanges();
                 Instance.fullscreen = true;
             } else
