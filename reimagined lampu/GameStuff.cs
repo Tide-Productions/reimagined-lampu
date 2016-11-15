@@ -11,11 +11,13 @@ namespace reimagined_lampu
 {
     class GameStuff
     {
-
         static GameStuff instance;
         public Player player;
         public float grScale;
         public bool fullscreen;
+
+        public Texture2D bulletTexture01;
+        public Texture2D bulletTexture02;
 
         public GameStuff()
         {

@@ -49,7 +49,7 @@ namespace reimagined_lampu
             switch (type)
             {
                 case 0:
-                    texture = Content.Load<Texture2D>("overlay");
+                    texture = GameStuff.Instance.bulletTexture01;
                     break;
                 default:
                     break;

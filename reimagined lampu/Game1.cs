@@ -46,6 +46,8 @@ namespace reimagined_lampu
             spriteBatch = new SpriteBatch(GraphicsDevice);
             GameStuff.Instance.player = new reimagined_lampu.Player(Content.Load<Texture2D>("player"), new Vector2(600, 950), 5.0f);
             overlay = Content.Load<Texture2D>("overlay");
+            GameStuff.Instance.bulletTexture01 = Content.Load<Texture2D>("bullets/Bullet1");
+            GameStuff.Instance.bulletTexture02 = Content.Load<Texture2D>("bullets/Bullet2");
             GameStuff.Instance.grScale = (float) 2/3;
             GameStuff.Instance.fullscreen = false;
             releasedFsT = true;
