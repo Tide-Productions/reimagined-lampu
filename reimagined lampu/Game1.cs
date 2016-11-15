@@ -32,7 +32,7 @@ namespace reimagined_lampu
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            
+            GameStuff.Instance.arial = Content.Load<SpriteFont>("Arial");
             base.Initialize();
         }
 

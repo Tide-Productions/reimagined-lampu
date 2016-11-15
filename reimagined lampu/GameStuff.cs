@@ -16,6 +16,7 @@ namespace reimagined_lampu
         public float grScale;
         public bool fullscreen;
         public float limitX1, limitX2, limitY1, limitY2; //Spielfeldgrenzen
+        public SpriteFont arial;
 
         public Texture2D bulletTexture01;
         public Texture2D bulletTexture02;

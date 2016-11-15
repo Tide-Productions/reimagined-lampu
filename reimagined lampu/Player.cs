@@ -58,6 +58,7 @@ namespace reimagined_lampu
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(texture, position, null, null, new Vector2(0,0), 0.0f, new Vector2((scale * GameStuff.Instance.grScale),(scale * GameStuff.Instance.grScale)), Color.White, 0f);
+            spriteBatch.DrawString(GameStuff.Instance.arial,"" + position.X,new Vector2(500,20),Color.White);
         }
 
         /// <summary>
