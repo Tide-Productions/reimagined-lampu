@@ -65,22 +65,20 @@ namespace reimagined_lampu
 
         public new void Update()
         {
-
-            Enemy[] testPattern = new Enemy[n];
-
+            List<Enemy> Pattern = new List<Enemy>();
+            //initalize the pattern
             if (timer % interval == 0)
             {
-
                 for (int i = 0; i < n; i++)
                 {
-                    //testPattern[i] = new Enemy(Content.Load<Texture2D>("player"), new Vector2(200, 100), startSpeedOB, Convert.ToSingle(((360/n * Math.PI) / 180));
+                    //
                 }
             }
 
-
-            for (int i = 0; i < n; i++)
+            //update the pattern
+            for (int i = 0; i < Pattern.Count; i++)
             {
-                testPattern[i].Update();
+                Pattern[i].Update();
             }
 
             //tick counter
