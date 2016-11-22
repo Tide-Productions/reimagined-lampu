@@ -11,15 +11,14 @@ namespace reimagined_lampu
 {
     abstract class Bullet
     {
+        //bullet type attributes
         protected int type;
         protected Texture2D texture;
         protected Color color;
     }
 
     class PolarBullet : Bullet
-    {
-        //bullet type attributes
-        
+    {        
         //behaviour?
 
         //graphic attributes
