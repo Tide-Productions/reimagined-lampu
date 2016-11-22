@@ -9,16 +9,17 @@ using Microsoft.Xna.Framework.Input;
 
 namespace reimagined_lampu
 {
-    class Bullet
+    abstract class Bullet
     {
+        protected int type;
+        protected Texture2D texture;
+        protected Color color;
     }
 
     class PolarBullet : Bullet
     {
         //bullet type attributes
-        private int type;
-        private Texture2D texture;
-        private Color color;
+        
         //behaviour?
 
         //graphic attributes
