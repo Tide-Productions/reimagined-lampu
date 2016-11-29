@@ -17,7 +17,7 @@ namespace reimagined_lampu
         public bool fullscreen;
         public float limitX1, limitX2, limitY1, limitY2; //Spielfeldgrenzen
         public SpriteFont arial;
-
+        public Texture2D background;
         public Texture2D bulletTexture01;
         public Texture2D bulletTexture02;
 
@@ -46,9 +46,9 @@ namespace reimagined_lampu
                 Instance.grScale = 1f;
                 Instance.player.setPosition(new Vector2((Instance.player.getPosition().X*1920)/1280,(Instance.player.getPosition().Y*1080)/720));
                 Instance.limitX1 = 330;
-                Instance.limitX2 = 1000;
-                Instance.limitY1 = 0;
-                Instance.limitX2 = 900;
+                Instance.limitX2 = 1110;
+                Instance.limitY1 = 20;
+                Instance.limitY2 = 1060;
                 graphics.ApplyChanges();
                 Instance.fullscreen = true;
             }
@@ -59,9 +59,9 @@ namespace reimagined_lampu
                 Instance.grScale = (float) 2/3;
                 Instance.player.setPosition(new Vector2((Instance.player.getPosition().X * 1280) / 1920, (Instance.player.getPosition().Y * 720) / 1080));
                 Instance.limitX1 = 220;
-                Instance.limitX2 = 667;
-                Instance.limitY1 = 0;
-                Instance.limitX2 = 600;
+                Instance.limitX2 = 740;
+                Instance.limitY1 = 10;
+                Instance.limitX2 = 700;
                 graphics.ApplyChanges();
                 Instance.fullscreen = false;
             }

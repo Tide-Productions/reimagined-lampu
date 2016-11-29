@@ -44,6 +44,25 @@ namespace reimagined_lampu
             if (key.IsKeyDown(Keys.Up) || key.IsKeyDown(Keys.W)) move.Y -= speed;
             if (key.IsKeyDown(Keys.Down) || key.IsKeyDown(Keys.S)) move.Y += speed;
 
+            if ((position.X < GameStuff.Instance.limitX1))
+            {
+                move.X = 0;
+            }
+            if ((position.X + texture.Width > GameStuff.Instance.limitX2))
+            {
+                move.X = 0;
+            }
+            if ((position.Y < GameStuff.Instance.limitY1))
+            {
+                move.Y = 0;
+            }
+            if ((position.Y + texture.Height > GameStuff.Instance.limitY2))
+            {
+                move.Y = 0;
+            }
+
+
+
 
             //Bewegung ausführen
             position += move;
@@ -59,6 +78,7 @@ namespace reimagined_lampu
         {
             spriteBatch.Draw(texture, position, null, null, new Vector2(0,0), 0.0f, new Vector2((scale * GameStuff.Instance.grScale),(scale * GameStuff.Instance.grScale)), Color.White, 0f);
             spriteBatch.DrawString(GameStuff.Instance.arial,"" + position.X,new Vector2(500,20),Color.White);
+            spriteBatch.DrawString(GameStuff.Instance.arial, "" + position.Y, new Vector2(500, 35), Color.White);
         }
 
         /// <summary>

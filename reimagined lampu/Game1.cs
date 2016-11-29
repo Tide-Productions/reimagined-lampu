@@ -27,6 +27,10 @@ namespace reimagined_lampu
             graphics.PreferredBackBufferWidth = 1280;
             graphics.PreferredBackBufferHeight = 720;
             Content.RootDirectory = "Content";
+            GameStuff.Instance.limitX1 = 220;
+            GameStuff.Instance.limitX2 = 740;
+            GameStuff.Instance.limitY1 = 10;
+            GameStuff.Instance.limitX2 = 700;
         }
 
         /// <summary>
@@ -56,6 +60,7 @@ namespace reimagined_lampu
             GameStuff.Instance.bulletTexture01 = Content.Load<Texture2D>("bullets/Bullet1");
             GameStuff.Instance.bulletTexture02 = Content.Load<Texture2D>("bullets/Bullet2");
             GameStuff.Instance.grScale = (float) 2/3;
+            GameStuff.Instance.background = Content.Load<Texture2D>("space");
             GameStuff.Instance.fullscreen = false;
             releasedFsT = true;
             // TODO: use this.Content to load your game content here
@@ -100,9 +105,9 @@ namespace reimagined_lampu
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
             spriteBatch.Begin();
-
+            spriteBatch.Draw(GameStuff.Instance.background, new Vector2(200, 0), null, null, new Vector2(0, 0), 0.0f, new Vector2(GameStuff.Instance.grScale, GameStuff.Instance.grScale), Color.White, 0f);
             test.Draw(spriteBatch);
 
             GameStuff.Instance.player.Draw(spriteBatch);
