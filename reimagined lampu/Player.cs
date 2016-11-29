@@ -44,19 +44,19 @@ namespace reimagined_lampu
             if (key.IsKeyDown(Keys.Up) || key.IsKeyDown(Keys.W)) move.Y -= speed;
             if (key.IsKeyDown(Keys.Down) || key.IsKeyDown(Keys.S)) move.Y += speed;
 
-            if ((position.X < GameStuff.Instance.limitX1))
+            if ((position.X <= GameStuff.Instance.limitX1) && (move.X < 0))
             {
                 move.X = 0;
             }
-            if ((position.X + texture.Width > GameStuff.Instance.limitX2))
+            if ((position.X >= GameStuff.Instance.limitX2) && (move.X > 0))
             {
                 move.X = 0;
             }
-            if ((position.Y < GameStuff.Instance.limitY1))
+            if ((position.Y <= GameStuff.Instance.limitY1) && (move.Y < 0))
             {
                 move.Y = 0;
             }
-            if ((position.Y + texture.Height > GameStuff.Instance.limitY2))
+            if ((position.Y >= GameStuff.Instance.limitY2) && (move.Y > 0))
             {
                 move.Y = 0;
             }

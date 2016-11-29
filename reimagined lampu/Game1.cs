@@ -27,10 +27,6 @@ namespace reimagined_lampu
             graphics.PreferredBackBufferWidth = 1280;
             graphics.PreferredBackBufferHeight = 720;
             Content.RootDirectory = "Content";
-            GameStuff.Instance.limitX1 = 220;
-            GameStuff.Instance.limitX2 = 740;
-            GameStuff.Instance.limitY1 = 10;
-            GameStuff.Instance.limitX2 = 700;
         }
 
         /// <summary>
@@ -61,7 +57,8 @@ namespace reimagined_lampu
             GameStuff.Instance.bulletTexture02 = Content.Load<Texture2D>("bullets/Bullet2");
             GameStuff.Instance.grScale = (float) 2/3;
             GameStuff.Instance.background = Content.Load<Texture2D>("space");
-            GameStuff.Instance.fullscreen = false;
+            GameStuff.Instance.fullscreen = true;
+            GameStuff.toggleScreen(graphics);
             releasedFsT = true;
             // TODO: use this.Content to load your game content here
         }
