@@ -23,6 +23,7 @@ namespace reimagined_lampu
 
         //graphic attributes
         private float rotation;
+        private float grScale;
 
         //movement attributes
         private float speed;
@@ -40,6 +41,7 @@ namespace reimagined_lampu
         {
             type = bulletType;
             rotation = bulletStartAngle;
+            grScale = 1.0f; 
             speed = bulletSpeed;
             angleChange = bulletAngleChange;
             acceleration = bulletAcceleration;
@@ -75,7 +77,7 @@ namespace reimagined_lampu
         //draw
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, position, color);
+            spriteBatch.Draw(texture, position, null, null, new Vector2(0, 0), 0.0f, new Vector2((grScale * GameStuff.Instance.grScale), (grScale * GameStuff.Instance.grScale)), color);
         }
     }
 }
