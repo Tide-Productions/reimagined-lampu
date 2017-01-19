@@ -16,9 +16,8 @@ namespace reimagined_lampu
     {
         public GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        EState currentState;
         bool releasedFsT;
-        PlayState stage;
+        MainMenu mainMenu;
 
         public Game1()
         {
@@ -38,8 +37,13 @@ namespace reimagined_lampu
         {
             // TODO: Add your initialization logic here
             GameStuff.Instance.arial = Content.Load<SpriteFont>("Arial");
-            currentState = EState.PlayState;
-            stage = new PlayState(Content);
+            GameStuff.Instance.Content = Content;
+            GameStuff.Instance.limitX1 = 204.9f;
+            GameStuff.Instance.limitX2 = 718;
+            GameStuff.Instance.limitY1 = -4;
+            GameStuff.Instance.limitY2 = 680;
+            GameStuff.Instance.currentState = EState.MainMenu;
+            mainMenu = new MainMenu(Content);
             base.Initialize();
         }
 
@@ -52,8 +56,8 @@ namespace reimagined_lampu
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             GameStuff.Instance.background = Content.Load<Texture2D>("space");
-            GameStuff.Instance.fullscreen = true;
-            GameStuff.toggleScreen(graphics);
+            //GameStuff.Instance.fullscreen = true;
+            //GameStuff.toggleScreen(graphics);
             releasedFsT = true;
             // TODO: use this.Content to load your game content here
         }
@@ -86,9 +90,13 @@ namespace reimagined_lampu
             }
             if (Keyboard.GetState().IsKeyUp(Keys.F11)) releasedFsT = true;
 
-            if (currentState == EState.PlayState)
+            if (GameStuff.Instance.currentState == EState.PlayState)
             {
-                stage.Update(gameTime);
+                GameStuff.Instance.stage.Update(gameTime);
+            }
+            if (GameStuff.Instance.currentState == EState.MainMenu)
+            {
+                mainMenu.Update(gameTime);
             }
 
             base.Update(gameTime);
@@ -104,9 +112,13 @@ namespace reimagined_lampu
             spriteBatch.Begin();
             spriteBatch.Draw(GameStuff.Instance.background, new Vector2(200, 0), null, null, new Vector2(0, 0), 0.0f, new Vector2(GameStuff.Instance.grScale, GameStuff.Instance.grScale), Color.White, 0f);
             
-            if (currentState == EState.PlayState)
+            if (GameStuff.Instance.currentState == EState.PlayState)
             {
-                stage.Draw(spriteBatch);
+                GameStuff.Instance.stage.Draw(spriteBatch);
+            }
+            if (GameStuff.Instance.currentState == EState.MainMenu)
+            {
+                mainMenu.Draw(spriteBatch);
             }
             spriteBatch.End();
             // TODO: Add your drawing code here

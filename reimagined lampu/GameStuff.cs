@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Content;
 
 namespace reimagined_lampu
 {
@@ -20,6 +21,9 @@ namespace reimagined_lampu
         public Texture2D background;
         public Texture2D bulletTexture01;
         public Texture2D bulletTexture02;
+        public EState currentState;
+        public PlayState stage;
+        public ContentManager Content;
 
         public GameStuff()
         {
@@ -66,6 +70,18 @@ namespace reimagined_lampu
                 Instance.fullscreen = false;
             }
            
+        }
+
+        public static void setGameState(EState State, int id = 0)
+        {
+            if (State == EState.PlayState)
+            {
+                Instance.stage = new PlayState(Instance.Content);
+                Instance.currentState = EState.PlayState;
+            } if (State == EState.MainMenu)
+            {
+                Instance.currentState = EState.MainMenu;
+            }
         }
     }
 }

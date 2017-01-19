@@ -18,7 +18,7 @@ namespace reimagined_lampu
         public PlayState(ContentManager Content)
         {
             LoadContent(Content);
-            GameStuff.Instance.player = new Player(Content.Load<Texture2D>("player"), new Vector2(600, 350), 3.0f);
+            GameStuff.Instance.player = new Player(Content.Load<Texture2D>("player"), new Vector2(600, 350), 3.5f);
             test = new PolarPatterns(0, 1, 36, 0, 0, 0, 50, 100, new Vector2(300, 300), 8);
         }
 
