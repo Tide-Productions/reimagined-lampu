@@ -60,7 +60,7 @@ namespace reimagined_lampu
         public bool Check(MouseState mouseState)
         {
             if ((current == ButtonSta.active || current == ButtonSta.hover) && visibility) {
-                if (mouseState.X >= position.X && mouseState.X <= (position.X + active.Width) && mouseState.Y >= position.Y && mouseState.Y <= (position.Y + active.Width))
+                if (mouseState.X >= position.X && mouseState.X <= (position.X + active.Width) && mouseState.Y >= position.Y && mouseState.Y <= (position.Y + active.Height))
                 {
                     current = ButtonSta.hover;
                     if (mouseState.LeftButton == ButtonState.Pressed)
