@@ -43,7 +43,7 @@ namespace reimagined_lampu
             {
                 graphics.PreferredBackBufferWidth = 1920;
                 graphics.PreferredBackBufferHeight = 1080;
-                Instance.grScale = 1f;
+                Instance.grScale = 1.0f;
                 Instance.player.setPosition(new Vector2((Instance.player.getPosition().X*1920)/1280,(Instance.player.getPosition().Y*1080)/720));
                 Instance.limitX1 = 330;
                 Instance.limitX2 = 680;
@@ -56,7 +56,7 @@ namespace reimagined_lampu
             {
                 graphics.PreferredBackBufferWidth = 1280;
                 graphics.PreferredBackBufferHeight = 720;
-                Instance.grScale = (float) 2/3;
+                Instance.grScale = (float) 2.0f/3.0f;
                 Instance.player.setPosition(new Vector2((Instance.player.getPosition().X * 1280) / 1920, (Instance.player.getPosition().Y * 720) / 1080));
                 Instance.limitX1 = 204.9f;
                 Instance.limitX2 = 718;

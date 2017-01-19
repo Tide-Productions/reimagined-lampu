@@ -42,9 +42,11 @@
     <Compile Include="Enemy.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GameStuff.cs" />
+    <Compile Include="IGameState.cs" />
     <Compile Include="Maths.cs" />
     <Compile Include="Patterns.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="PlayState.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
