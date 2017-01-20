@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace reimagined_lampu
 {
-    enum ButtonSta
+    enum BtnState
     {
         active,
         inactive,
@@ -18,21 +18,23 @@ namespace reimagined_lampu
     } 
     class Button
     {
-        ButtonSta current;
+        BtnState current;
         Texture2D active;
         Texture2D inactive;
         Texture2D hover;
         Vector2 position;
+        Vector2 textPosition;
         string text;
         bool visibility;
 
-        public Button(Texture2D active, Texture2D inactive, Texture2D hover, Vector2 position, string text , ButtonSta state, bool visibility)
+        public Button(Texture2D active, Texture2D inactive, Texture2D hover, Vector2 position, string text , Vector2 textPosition, BtnState state, bool visibility)
         {
             this.active = active;
             this.inactive = inactive;
             this.hover = hover;
             this.position = position;
             this.text = text;
+            this.textPosition = textPosition;
             current = state;
             this.visibility = visibility;
         }
@@ -43,40 +45,40 @@ namespace reimagined_lampu
             {
                 switch (current)
                 {
-                    case ButtonSta.active:
+                    case BtnState.active:
                         spriteBatch.Draw(active, position, Color.White);
                         break;
-                    case ButtonSta.inactive:
+                    case BtnState.inactive:
                         spriteBatch.Draw(inactive, position, Color.White);
                         break;
-                    case ButtonSta.hover:
+                    case BtnState.hover:
                         spriteBatch.Draw(hover, position, Color.White);
                         break;
                 }
-                spriteBatch.DrawString(GameStuff.Instance.arial, text, position + new Vector2(20, 13), Color.White);
+                spriteBatch.DrawString(spriteFont: GameStuff.Instance.arial,text: text,position: position + textPosition,color: Color.White);
             }
         }
 
         public bool Check(MouseState mouseState)
         {
-            if ((current == ButtonSta.active || current == ButtonSta.hover) && visibility) {
+            if ((current == BtnState.active || current == BtnState.hover) && visibility) {
                 if (mouseState.X >= position.X && mouseState.X <= (position.X + active.Width) && mouseState.Y >= position.Y && mouseState.Y <= (position.Y + active.Height))
                 {
-                    current = ButtonSta.hover;
-                    if (mouseState.LeftButton == ButtonState.Pressed)
+                    current = BtnState.hover;
+                    if (mouseState.LeftButton == ButtonState.Pressed && visibility)
                     {
-                        current = ButtonSta.inactive;
+                        current = BtnState.inactive;
                         return true;
                     }
                 }
                 else
                 {
-                    current = ButtonSta.active;
+                    current = BtnState.active;
                 }
             }
             return false;
         }
-        public void setState(ButtonSta State)
+        public void setState(BtnState State)
         {
             current = State;
         }
