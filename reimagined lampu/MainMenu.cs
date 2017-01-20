@@ -10,6 +10,9 @@ using Microsoft.Xna.Framework.Input;
 
 namespace reimagined_lampu
 {
+    /// <summary>
+    /// MainMenu of the Game
+    /// </summary>
     class MainMenu : IGameState
     {
         Vector2 cursorPos;
@@ -30,6 +33,11 @@ namespace reimagined_lampu
         Button about, exit;
         bool drawAbout;
 
+        /// <summary>
+        /// Make a new MainMenu
+        /// </summary>
+        /// <param name="Content">ContentManager of the Game. Used to load Content</param>
+        /// <param name="toSplash">Set if MainMenu should start on Splash Screen</param>
         public MainMenu(ContentManager Content, bool toSplash = true)
         {
             onSplash = toSplash;

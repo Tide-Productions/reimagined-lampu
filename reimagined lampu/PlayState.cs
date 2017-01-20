@@ -10,6 +10,9 @@ using Microsoft.Xna.Framework.Content;
 
 namespace reimagined_lampu
 {
+    /// <summary>
+    /// PlayState of the Game
+    /// </summary>
     class PlayState : IGameState
     {
         private Texture2D overlay;
