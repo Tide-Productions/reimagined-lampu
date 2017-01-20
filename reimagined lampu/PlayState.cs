@@ -26,7 +26,7 @@ namespace reimagined_lampu
         {
             GameStuff.Instance.player.Draw(spriteBatch);
             test.Draw(spriteBatch);
-            spriteBatch.Draw(overlay, new Vector2(0, 0), null, null, new Vector2(0, 0), 0.0f, new Vector2(GameStuff.Instance.grScale, GameStuff.Instance.grScale), Color.White, 0f);
+            spriteBatch.Draw(texture: overlay,position: new Vector2(0, 0),scale: new Vector2(GameStuff.Instance.grScale, GameStuff.Instance.grScale),color: Color.White);
         }
 
         public void LoadContent(ContentManager Content)

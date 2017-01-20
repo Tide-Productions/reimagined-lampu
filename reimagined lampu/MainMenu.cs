@@ -14,6 +14,7 @@ namespace reimagined_lampu
     {
         Vector2 cursorPos;
 
+        Texture2D background;
         Texture2D cursorTexture;
         Texture2D buttonActive;
         Texture2D buttonInactive;
@@ -29,12 +30,14 @@ namespace reimagined_lampu
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            spriteBatch.Draw(texture: background,position: new Vector2(0, 0),scale: new Vector2(2.0f/3.0f,2.0f/3.0f),color: Color.White);
             play.Draw(spriteBatch);
             spriteBatch.Draw(cursorTexture, cursorPos, Color.White);
         }
 
         public void LoadContent(ContentManager Content)
         {
+            background = Content.Load<Texture2D>("Menu");
             buttonActive = Content.Load<Texture2D>("bt_active");
             buttonInactive = Content.Load<Texture2D>("bt_inactive");
             buttonHover = Content.Load<Texture2D>("bt_hover");
