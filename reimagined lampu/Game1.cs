@@ -92,7 +92,7 @@ namespace reimagined_lampu
 
             if (GameStuff.Instance.currentState == EState.PlayState)
             {
-                GameStuff.Instance.stage.Update(gameTime);
+                GameStuff.Instance.currentState = GameStuff.Instance.stage.Update(gameTime);
             }
             if (GameStuff.Instance.currentState == EState.MainMenu)
             {

@@ -26,8 +26,11 @@ namespace reimagined_lampu
         Vector2 textPosition;
         string text;
         bool visibility;
+        bool drawToolTip;
+        string toolTipText;
+        Color? writingColor;
 
-        public Button(Texture2D active, Texture2D inactive, Texture2D hover, Vector2 position, string text , Vector2 textPosition, BtnState state, bool visibility)
+        public Button(Texture2D active, Texture2D inactive, Texture2D hover, Vector2 position, string text , Vector2 textPosition, BtnState state, bool visibility, Color? color = null, string toolTip = "")
         {
             this.active = active;
             this.inactive = inactive;
@@ -37,6 +40,11 @@ namespace reimagined_lampu
             this.textPosition = textPosition;
             current = state;
             this.visibility = visibility;
+            if (color == null)
+                writingColor = Color.White;
+            else
+                writingColor = color;
+            this.toolTipText = toolTip;
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -46,34 +54,44 @@ namespace reimagined_lampu
                 switch (current)
                 {
                     case BtnState.active:
-                        spriteBatch.Draw(active, position, Color.White);
+                        spriteBatch.Draw(active, position, (Color) writingColor);
+                        spriteBatch.DrawString(spriteFont: GameStuff.Instance.arial, text: text, position: position + textPosition, color: Color.White);
                         break;
                     case BtnState.inactive:
                         spriteBatch.Draw(inactive, position, Color.White);
+                        spriteBatch.DrawString(spriteFont: GameStuff.Instance.arial, text: text, position: position + textPosition, color: Color.Gray);
                         break;
                     case BtnState.hover:
-                        spriteBatch.Draw(hover, position, Color.White);
+                        spriteBatch.Draw(hover, position, (Color) writingColor);
+                        spriteBatch.DrawString(spriteFont: GameStuff.Instance.arial, text: text, position: position + textPosition, color: Color.White);
                         break;
                 }
-                spriteBatch.DrawString(spriteFont: GameStuff.Instance.arial,text: text,position: position + textPosition,color: Color.White);
+                if (drawToolTip)
+                    spriteBatch.DrawString(spriteFont: GameStuff.Instance.arial,text: toolTipText,position: new Vector2(500, 50),color: (Color) writingColor);
             }
         }
 
         public bool Check(MouseState mouseState)
         {
-            if ((current == BtnState.active || current == BtnState.hover) && visibility) {
+            if (visibility) {
                 if (mouseState.X >= position.X && mouseState.X <= (position.X + active.Width) && mouseState.Y >= position.Y && mouseState.Y <= (position.Y + active.Height))
                 {
-                    current = BtnState.hover;
-                    if (mouseState.LeftButton == ButtonState.Pressed && visibility)
+                    drawToolTip = true;
+                    if (current == BtnState.active || current == BtnState.hover)
                     {
-                        current = BtnState.inactive;
-                        return true;
+                        current = BtnState.hover;
+
+                        if (mouseState.LeftButton == ButtonState.Pressed && visibility)
+                        {
+                            return true;
+                        }
                     }
-                }
-                else
+
+                } else
                 {
-                    current = BtnState.active;
+                    if (current == BtnState.hover)
+                        current = BtnState.active;
+                    drawToolTip = false;
                 }
             }
             return false;
