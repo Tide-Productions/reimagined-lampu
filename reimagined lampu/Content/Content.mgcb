@@ -163,3 +163,9 @@
 /processorParam:TextureFormat=Color
 /build:Death.png
 
+#begin bg.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:bg.mp3
+

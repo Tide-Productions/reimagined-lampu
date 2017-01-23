@@ -126,6 +126,7 @@ namespace reimagined_lampu
             if (GameStuff.Instance.player != null && GameStuff.Instance.player.getHealth() <= 0)
             {
                 GameStuff.setGameState(EState.Death);
+                GameStuff.Instance.player.applyDamage(-100);
             }
 
             base.Update(gameTime);
