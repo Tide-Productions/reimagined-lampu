@@ -28,7 +28,7 @@ namespace reimagined_lampu
             health = 100;
             death = 0;
             scale = 0.12f;
-            hitbox = new Rectangle((int)position.X, (int)position.Y, (int)(texture.Width * scale * GameStuff.Instance.grScale), (int)(texture.Height * scale * GameStuff.Instance.grScale));
+            hitbox = new Rectangle((int)position.X + 20 , (int)position.Y + 24, 8, 8);
         }
 
         /// <summary>
@@ -63,7 +63,8 @@ namespace reimagined_lampu
                 move.Y = 0;
             }
 
-
+            hitbox.X = (int)position.X + 20;
+            hitbox.Y = (int)position.Y + 20;
 
 
             //Bewegung ausführen
@@ -94,7 +95,7 @@ namespace reimagined_lampu
             if (health <= 0)
             {
                 death++;
-                health = 100;
+                //health = 100;
             }
         }
 
