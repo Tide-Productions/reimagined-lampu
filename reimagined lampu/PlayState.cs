@@ -16,7 +16,7 @@ namespace reimagined_lampu
     /// </summary>
     class PlayState : IGameState
     {
-        private List<PolarPatterns> patternList = new List<PolarPatterns>();
+        private List<Patterns> patternList;
         private BigInteger time;
         private Texture2D overlay;
 
@@ -24,19 +24,22 @@ namespace reimagined_lampu
         {
             LoadContent(Content);
             GameStuff.Instance.player = new Player(Content.Load<Texture2D>("player"), new Vector2(600, 350), 3.5f);
+            patternList = new List<Patterns>();
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             GameStuff.Instance.player.Draw(spriteBatch);
-            spriteBatch.Draw(texture: overlay,position: new Vector2(0, 0),scale: new Vector2(GameStuff.Instance.grScale, GameStuff.Instance.grScale),color: Color.White);
-            spriteBatch.DrawString(GameStuff.Instance.arial, "Score: " + GameStuff.Instance.score, new Vector2(900, 120), Color.White);
-            spriteBatch.DrawString(GameStuff.Instance.arial, "Health: " + GameStuff.Instance.player.getHealth(), new Vector2(900, 200), Color.White);
-
             foreach (Patterns p in patternList)
             {
-                p.Draw();
+                p.Draw(spriteBatch);
             }
+
+            spriteBatch.Draw(texture: overlay, position: new Vector2(0, 0), scale: new Vector2(GameStuff.Instance.grScale, GameStuff.Instance.grScale), color: Color.White);
+            spriteBatch.DrawString(GameStuff.Instance.arial, "Score: " + GameStuff.Instance.score, new Vector2(900, 120), Color.White);
+            spriteBatch.DrawString(GameStuff.Instance.arial, "Health: " + GameStuff.Instance.player.getHealth(), new Vector2(900, 200), Color.White);
+            spriteBatch.DrawString(GameStuff.Instance.arial, "Time: " + time.ToString(), new Vector2(900, 280), Color.White);
+
         }
 
         public void LoadContent(ContentManager Content)
@@ -52,12 +55,15 @@ namespace reimagined_lampu
 
             GameStuff.Instance.player.Update();
 
-            foreach (PolarPatterns p in patternList)
+            foreach (Patterns p in patternList)
             {
                 p.Update();
             }
 
-            if (time.Equals(100)) { patternList.Add(new PolarPatterns(1,36,0,0,0,50,100,new Vector2(300,300),8)); }
+            if (time == 100)
+            {
+                patternList.Add(new PolarPatterns(1,36,0,0,0,50,100,new Vector2(300,300),8));
+            }
 
             time++;
             return EState.PlayState;

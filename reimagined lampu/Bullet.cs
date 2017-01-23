@@ -15,6 +15,9 @@ namespace reimagined_lampu
         protected int type;
         protected Texture2D texture;
         protected Color color;
+
+        public abstract void Update();
+        public abstract void Draw(SpriteBatch spriteBatch);
     }
 
     class PolarBullet : Bullet
@@ -66,7 +69,7 @@ namespace reimagined_lampu
         }
 
         //update
-        public void Update()
+        public override void Update()
         {
             radius += speed/100f;
             angle += angleChange/100f;
@@ -80,7 +83,7 @@ namespace reimagined_lampu
         }
 
         //draw
-        public void Draw(SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(texture: texture, position: position, origin: null, rotation: 0.0f,scale: new Vector2((grScale * GameStuff.Instance.grScale), (grScale * GameStuff.Instance.grScale)),color: color);
         }

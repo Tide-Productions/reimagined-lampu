@@ -9,21 +9,14 @@ using Microsoft.Xna.Framework.Input;
 
 namespace reimagined_lampu
 {
-    class Patterns
+    abstract class Patterns
     {
-      
+
         /// <summary>
         /// Patternzustand updaten
         /// </summary>
-        public void Update()
-        {
-            
-        }
-
-        public void Draw()
-        {
-
-        }
+        public abstract void Update();
+        public abstract void Draw(SpriteBatch spriteBatch);
     }
     class PolarPatterns : Patterns
     {
@@ -68,7 +61,7 @@ namespace reimagined_lampu
             angleChangeOS = 360 / n;
         }
 
-        public new void Update()
+        public override void Update()
         {
 
             //initalize the pattern
@@ -102,7 +95,7 @@ namespace reimagined_lampu
             timer++;
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
             foreach (PolarBullet i in Pattern)
             {
