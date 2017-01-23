@@ -45,6 +45,7 @@ namespace reimagined_lampu
             GameStuff.Instance.currentState = EState.MainMenu;
             GameStuff.Instance.grScale = 2.0f / 3.0f;
             GameStuff.Instance.mainMenu = new MainMenu(Content);
+            GameStuff.Instance.score = 0;
             base.Initialize();
         }
 

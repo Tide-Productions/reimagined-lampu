@@ -27,7 +27,7 @@ namespace reimagined_lampu
     }
     class PolarPatterns : Patterns
     {
-        int PatternID;
+        int PatternID = 0;
         int typeOB;
         int n;
         float accelerationOB;
@@ -42,9 +42,8 @@ namespace reimagined_lampu
         int timer;
         int counter;
 
-        public PolarPatterns(int PatternID, int typeOB, int numberOB, int intervalOS, float accelerationOB, float startAngleOS, float angleChangeOB, float startSpeedOB, Vector2 spawnPosition, float angleChangeOS)
+        public PolarPatterns(int typeOB, int numberOB, int intervalOS, float accelerationOB, float startAngleOS, float angleChangeOB, float startSpeedOB, Vector2 spawnPosition, float angleChangeOS)
         {
-            this.PatternID = PatternID;
             this.typeOB = typeOB;
             n = numberOB;
             this.spawnPosition = spawnPosition;
@@ -56,9 +55,8 @@ namespace reimagined_lampu
             interval = intervalOS;
         }
 
-        public PolarPatterns(int PatternID, int typeOB, int numberOB, int intervalOS, float accelerationOB, float startAngleOS, float angleChangeOB, float startSpeedOB, Vector2 spawnPosition)
+        public PolarPatterns(int typeOB, int numberOB, int intervalOS, float accelerationOB, float startAngleOS, float angleChangeOB, float startSpeedOB, Vector2 spawnPosition)
         {
-            this.PatternID = PatternID;
             this.typeOB = typeOB;
             n = numberOB;
             this.spawnPosition = spawnPosition;

@@ -27,6 +27,7 @@ namespace reimagined_lampu
         public ContentManager Content;
         public Pause pause;
         public Death death;
+        public ulong score;
 
         public GameStuff()
         {
