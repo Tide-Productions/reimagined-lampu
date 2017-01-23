@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
+using System.Numerics;
 
 namespace reimagined_lampu
 {
@@ -15,6 +16,7 @@ namespace reimagined_lampu
     /// </summary>
     class PlayState : IGameState
     {
+        private BigInteger time;
         private Texture2D overlay;
         PolarPatterns test;
 
@@ -34,18 +36,22 @@ namespace reimagined_lampu
 
         public void LoadContent(ContentManager Content)
         {
+            time = 0;
             overlay = Content.Load<Texture2D>("overlay");
             GameStuff.Instance.bulletTexture01 = Content.Load<Texture2D>("bullets/Bullet1");
             GameStuff.Instance.bulletTexture02 = Content.Load<Texture2D>("bullets/Bullet2");
             GameStuff.Instance.grScale = 2.0f / 3.0f;
-
         }
 
         public EState Update(GameTime gameTime)
         {
+
             GameStuff.Instance.player.Update();
 
-            test.Update();
+            //example
+            //if (time >= 90) { test.Update(); }
+
+            time++;
             return EState.PlayState;
         }
     }
