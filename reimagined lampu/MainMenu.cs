@@ -50,7 +50,7 @@ namespace reimagined_lampu
             stageTwo = new Button(active: buttonActive, inactive: buttonInactive, hover: buttonHover, position: new Vector2(370, 200), text: "Stage 2", textPosition: new Vector2(100, 40), state: BtnState.inactive, visibility: false, toolTip: "You have to clear Stage 1 first!");
             stageThree = new Button(active: buttonActive, inactive: buttonInactive, hover: buttonHover, position: new Vector2(370, 300), text: "Stage 3", textPosition: new Vector2(100, 40), state: BtnState.inactive, visibility: false, toolTip: "You have to clear Stage 2 first!");
 
-            options = new Button(active: buttonActive, inactive: buttonInactive, hover: buttonHover, position: new Vector2(950, 100), text: "Options", textPosition: new Vector2(100, 40), state: BtnState.inactive, visibility: false, toolTip: "This function isn't important, isn't it?");
+            options = new Button(active: buttonActive, inactive: buttonInactive, hover: buttonHover, position: new Vector2(950, 100), text: "Options", textPosition: new Vector2(100, 40), state: BtnState.inactive, visibility: false, toolTip: "This feature isn't important, isn't it?");
             about = new Button(active: buttonActive, inactive: buttonInactive, hover: buttonHover, position: new Vector2(950, 250), text: "About", textPosition: new Vector2(100, 40), state: BtnState.active, visibility: false, toolTip: "You want to now more?");
             exit = new Button(active: buttonActive, inactive: buttonInactive, hover: buttonHover, position: new Vector2(950, 550), text: "EXIT", textPosition: new Vector2(100, 40), state: BtnState.active, visibility: false, toolTip: "Already leaving? :C");
             drawAbout = false;

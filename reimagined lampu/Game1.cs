@@ -38,7 +38,7 @@ namespace reimagined_lampu
             // TODO: Add your initialization logic here
             GameStuff.Instance.arial = Content.Load<SpriteFont>("Arial");
             GameStuff.Instance.Content = Content;
-            GameStuff.Instance.limitX1 = 204.9f;
+            GameStuff.Instance.limitX1 = 202.9f;
             GameStuff.Instance.limitX2 = 718;
             GameStuff.Instance.limitY1 = -4;
             GameStuff.Instance.limitY2 = 680;
