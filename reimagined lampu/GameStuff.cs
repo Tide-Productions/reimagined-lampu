@@ -22,8 +22,11 @@ namespace reimagined_lampu
         public Texture2D bulletTexture01;
         public Texture2D bulletTexture02;
         public EState currentState;
+        public MainMenu mainMenu;
         public PlayState stage;
         public ContentManager Content;
+        public Pause pause;
+        public Death death;
 
         public GameStuff()
         {
@@ -81,6 +84,20 @@ namespace reimagined_lampu
             } if (State == EState.MainMenu)
             {
                 Instance.currentState = EState.MainMenu;
+            }
+            if (State == EState.Death)
+            {
+                Instance.currentState = EState.Death;
+            }
+        }
+        public static void togglePause()
+        {
+            if (Instance.currentState == EState.Pause){
+                instance.currentState = EState.PlayState;
+            } else
+            {
+                instance.pause.reset();
+                instance.currentState = EState.Pause;
             }
         }
     }

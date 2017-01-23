@@ -17,7 +17,7 @@ namespace reimagined_lampu
         public GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         bool releasedFsT;
-        MainMenu mainMenu;
+        bool releasedEsc;
 
         public Game1()
         {
@@ -43,7 +43,7 @@ namespace reimagined_lampu
             GameStuff.Instance.limitY1 = -4;
             GameStuff.Instance.limitY2 = 680;
             GameStuff.Instance.currentState = EState.MainMenu;
-            mainMenu = new MainMenu(Content);
+            GameStuff.Instance.mainMenu = new MainMenu(Content);
             base.Initialize();
         }
 
@@ -58,7 +58,10 @@ namespace reimagined_lampu
             GameStuff.Instance.background = Content.Load<Texture2D>("space");
             //GameStuff.Instance.fullscreen = true;
             //GameStuff.toggleScreen(graphics);
+            GameStuff.Instance.pause = new Pause(Content);
+            GameStuff.Instance.death = new Death(Content);
             releasedFsT = true;
+            releasedEsc = true;
             // TODO: use this.Content to load your game content here
         }
 
@@ -78,8 +81,11 @@ namespace reimagined_lampu
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
+            //Debug-Stuff
+            if (Keyboard.GetState().IsKeyDown(Keys.K))
+                GameStuff.setGameState(EState.Death);
+
+
             // TODO: Add your update logic here
 
             if (Keyboard.GetState().IsKeyDown(Keys.F11) && releasedFsT)
@@ -90,13 +96,34 @@ namespace reimagined_lampu
             }
             if (Keyboard.GetState().IsKeyUp(Keys.F11)) releasedFsT = true;
 
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape) && releasedEsc && ((GameStuff.Instance.currentState == EState.PlayState) || GameStuff.Instance.currentState == EState.Pause))
+            {
+                GameStuff.togglePause();
+                releasedEsc = false;
+            }
+            if (Keyboard.GetState().IsKeyUp(Keys.Escape)) releasedEsc = true;
+
             if (GameStuff.Instance.currentState == EState.PlayState)
             {
                 GameStuff.Instance.currentState = GameStuff.Instance.stage.Update(gameTime);
             }
             if (GameStuff.Instance.currentState == EState.MainMenu)
             {
-                mainMenu.Update(gameTime);
+                GameStuff.Instance.mainMenu.Update(gameTime);
+            }
+            if (GameStuff.Instance.currentState == EState.Death)
+            {
+                GameStuff.Instance.death.Update(gameTime);
+            }
+            if (GameStuff.Instance.currentState == EState.Pause)
+            {
+                GameStuff.Instance.pause.Update(gameTime);
+            }
+
+
+            if (GameStuff.Instance.player != null && GameStuff.Instance.player.getHealth() <= 0)
+            {
+                GameStuff.setGameState(EState.Death);
             }
 
             base.Update(gameTime);
@@ -118,7 +145,15 @@ namespace reimagined_lampu
             }
             if (GameStuff.Instance.currentState == EState.MainMenu)
             {
-                mainMenu.Draw(spriteBatch);
+                GameStuff.Instance.mainMenu.Draw(spriteBatch);
+            }
+            if (GameStuff.Instance.currentState == EState.Death)
+            {
+                GameStuff.Instance.death.Draw(spriteBatch);
+            }
+            if (GameStuff.Instance.currentState == EState.Pause)
+            {
+                GameStuff.Instance.pause.Draw(spriteBatch);
             }
             spriteBatch.End();
             // TODO: Add your drawing code here

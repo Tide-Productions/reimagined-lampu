@@ -18,7 +18,8 @@ namespace reimagined_lampu
         None,
         MainMenu,
         PlayState,
-        Exit
+        Death,
+        Pause
     }
     /// <summary>
     /// Interface to standardize the states of the Game

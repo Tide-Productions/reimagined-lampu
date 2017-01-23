@@ -38,9 +38,9 @@ namespace reimagined_lampu
         /// </summary>
         /// <param name="Content">ContentManager of the Game. Used to load Content</param>
         /// <param name="toSplash">Set if MainMenu should start on Splash Screen</param>
-        public MainMenu(ContentManager Content, bool toSplash = true)
+        public MainMenu(ContentManager Content)
         {
-            onSplash = toSplash;
+            onSplash = true;
             LoadContent(Content);
 
             splash = new Button(active: buttonActive,inactive: buttonInactive,hover: buttonHover,position: new Vector2(500, 550),text: "START",textPosition: new Vector2(100,40),state: BtnState.active,visibility: onSplash);
@@ -52,7 +52,7 @@ namespace reimagined_lampu
 
             options = new Button(active: buttonActive, inactive: buttonInactive, hover: buttonHover, position: new Vector2(950, 100), text: "Options", textPosition: new Vector2(100, 40), state: BtnState.inactive, visibility: false, toolTip: "This function isn't important, isn't it?");
             about = new Button(active: buttonActive, inactive: buttonInactive, hover: buttonHover, position: new Vector2(950, 250), text: "About", textPosition: new Vector2(100, 40), state: BtnState.active, visibility: false, toolTip: "You want to now more?");
-            exit = new Button(active: buttonActive, inactive: buttonInactive, hover: buttonHover, position: new Vector2(950, 550), text: "EXIT", textPosition: new Vector2(100, 40), state: BtnState.active, visibility: false);
+            exit = new Button(active: buttonActive, inactive: buttonInactive, hover: buttonHover, position: new Vector2(950, 550), text: "EXIT", textPosition: new Vector2(100, 40), state: BtnState.active, visibility: false, toolTip: "Already leaving? :C");
             drawAbout = false;
 
         }
@@ -71,7 +71,7 @@ namespace reimagined_lampu
             exit.Draw(spriteBatch);
             if (drawAbout)
             {
-                spriteBatch.DrawString(GameStuff.Instance.arial, "Let's write something here", new Vector2(370, 130), Color.White);
+                spriteBatch.DrawString(GameStuff.Instance.arial, "This Game is still WIP", new Vector2(370, 130), Color.White);
             }
             
             spriteBatch.Draw(cursorTexture, cursorPos, Color.White);
@@ -148,6 +148,22 @@ namespace reimagined_lampu
                     break;
 
             }
+
+        }
+        public void reset()
+        {
+            onSplash = true;
+            splash.setVisibility(true);
+            background = splashScreen;
+
+            play.setVisibility(false);
+            options.setVisibility(false);
+            about.setVisibility(false);
+            exit.setVisibility(false);
+            stageOne.setVisibility(false);
+            stageTwo.setVisibility(false);
+            stageThree.setVisibility(false);
+            drawAbout = false;
         }
     }
 }
