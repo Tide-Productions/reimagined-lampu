@@ -43,6 +43,7 @@ namespace reimagined_lampu
             GameStuff.Instance.limitY1 = -4;
             GameStuff.Instance.limitY2 = 680;
             GameStuff.Instance.currentState = EState.MainMenu;
+            GameStuff.Instance.grScale = 2.0f / 3.0f;
             GameStuff.Instance.mainMenu = new MainMenu(Content);
             base.Initialize();
         }

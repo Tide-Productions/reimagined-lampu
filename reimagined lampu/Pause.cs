@@ -36,7 +36,7 @@ namespace reimagined_lampu
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(background, new Vector2(0), scale: new Vector2(2.0f / 3.0f), color: Color.White);
+            spriteBatch.Draw(background, new Vector2(0), scale: new Vector2(GameStuff.Instance.grScale), color: Color.White);
             returnToGame.Draw(spriteBatch);
             options.Draw(spriteBatch);
             returnToMain.Draw(spriteBatch);

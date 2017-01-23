@@ -40,7 +40,6 @@ namespace reimagined_lampu
             overlay = Content.Load<Texture2D>("overlay");
             GameStuff.Instance.bulletTexture01 = Content.Load<Texture2D>("bullets/Bullet1");
             GameStuff.Instance.bulletTexture02 = Content.Load<Texture2D>("bullets/Bullet2");
-            GameStuff.Instance.grScale = 2.0f / 3.0f;
         }
 
         public EState Update(GameTime gameTime)
