@@ -74,6 +74,11 @@ namespace reimagined_lampu
             Maths.toCartesian(ref position, centrePosition, angle, radius);
         }
 
+        public Vector2 getPosition()
+        {
+            return position;
+        }
+
         //draw
         public void Draw(SpriteBatch spriteBatch)
         {
