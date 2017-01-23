@@ -20,11 +20,9 @@ namespace reimagined_lampu
     }
     class PolarPatterns : Patterns
     {
-        int PatternID = 0;
         int typeOB;
         int n;
         float accelerationOB;
-        float startAngleOS;
         float angleChangeOB;
         float startSpeedOB;
         float angleChangeOS;
@@ -41,11 +39,11 @@ namespace reimagined_lampu
             n = numberOB;
             this.spawnPosition = spawnPosition;
             this.accelerationOB = accelerationOB;
-            this.startAngleOS = startAngleOS;
             this.angleChangeOB = angleChangeOB;
             this.startSpeedOB = startSpeedOB;
             this.angleChangeOS = angleChangeOS;
             interval = intervalOS;
+            angle = startAngleOS;
         }
 
         public PolarPatterns(int typeOB, int numberOB, int intervalOS, float accelerationOB, float startAngleOS, float angleChangeOB, float startSpeedOB, Vector2 spawnPosition)
@@ -54,11 +52,11 @@ namespace reimagined_lampu
             n = numberOB;
             this.spawnPosition = spawnPosition;
             this.accelerationOB = accelerationOB;
-            this.startAngleOS = startAngleOS;
             this.angleChangeOB = angleChangeOB;
             this.startSpeedOB = startSpeedOB;
             interval = intervalOS;
             angleChangeOS = 360 / n;
+            angle = startAngleOS;
         }
 
         public override void Update()
@@ -86,9 +84,10 @@ namespace reimagined_lampu
             }
 
             //update the pattern
-            foreach (PolarBullet i in Pattern)
+            for (int i = Pattern.Count - 1; i >= 0; i--)
             {
-                i.Update();
+                if (Pattern[i].getPosition().X > 800 || Pattern[i].getPosition().X < -100 || Pattern[i].getPosition().Y > 800 || Pattern[i].getPosition().Y < -100) { Pattern.RemoveAt(i); }
+                else { Pattern[i].Update(); }
             }
 
             //tick counter

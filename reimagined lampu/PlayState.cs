@@ -60,13 +60,36 @@ namespace reimagined_lampu
                 p.Update();
             }
 
-            if (time == 100)
-            {
-                patternList.Add(new PolarPatterns(1,36,0,0,0,50,100,new Vector2(300,300),8));
-            }
+            if (time == 100) { patternList.Add(new PolarPatterns(0, 20, 10, 0, -10, 0, 200, new Vector2(translate(-300), 0), 10)); }
+            if (time == 125) { patternList.Add(new PolarPatterns(0, 20, 10, 0, 0, 0, 200, new Vector2(translate(300), 0), 10)); }
+
+            if (time == 675) { patternList.Add(new PolarPatterns(1, 40, 10, -320, -10, 0.5f, 800, new Vector2(translate(-300), 0), 5)); }
+            if (time == 750) { patternList.Add(new PolarPatterns(1, 40, 10, -320, -7.5f, 0.5f, 800, new Vector2(translate(-300), 0), 5)); }
+            if (time == 825) { patternList.Add(new PolarPatterns(1, 40, 10, -320, -10, 0.5f, 900, new Vector2(translate(300), 0), 5)); }
+            if (time == 900) { patternList.Add(new PolarPatterns(1, 40, 10, -320, -7.5f, 0.5f, 900, new Vector2(translate(300), 0), 5)); }
+
+            if (time == 1300) { patternList.Add(new PolarPatterns(0, 20, 10, 0, -10, 0, 200, new Vector2(translate(-300), 0), 15)); }
+            if (time == 1325) { patternList.Add(new PolarPatterns(0, 20, 10, 0, -5, 0, 200, new Vector2(translate(-300), 0), 15)); }
+            if (time == 1350) { patternList.Add(new PolarPatterns(0, 20, 10, 0, -10, 0, 200, new Vector2(translate(-300), 0), 15)); }
+            if (time == 1375) { patternList.Add(new PolarPatterns(0, 20, 10, 0, -5, 0, 200, new Vector2(translate(-300), 0), 15)); }
+            if (time == 1400) { patternList.Add(new PolarPatterns(0, 20, 10, 0, -10, 0, 200, new Vector2(translate(-300), 0), 15)); }
+            if (time == 1425) { patternList.Add(new PolarPatterns(0, 20, 10, 0, -5, 0, 200, new Vector2(translate(-300), 0), 15)); }
+            if (time == 1450) { patternList.Add(new PolarPatterns(0, 20, 10, 0, -10, 0, 200, new Vector2(translate(-300), 0), 15)); }
+            if (time == 1475) { patternList.Add(new PolarPatterns(0, 20, 10, 0, -5, 0, 200, new Vector2(translate(-300), 0), 15)); }
+
+            if (time == 1500) { patternList.Add(new PolarPatterns(1, 20, 10, 0, 0, 0, 200, new Vector2(translate(300), 0), 15)); }
+            if (time == 1525) { patternList.Add(new PolarPatterns(1, 20, 10, 0, 5, 0, 200, new Vector2(translate(300), 0), 15)); }
+            if (time == 1550) { patternList.Add(new PolarPatterns(1, 20, 10, 0, 0, 0, 200, new Vector2(translate(300), 0), 15)); }
+            if (time == 1575) { patternList.Add(new PolarPatterns(1, 20, 10, 0, 5, 0, 200, new Vector2(translate(300), 0), 15)); }
+            if (time == 1600) { patternList.Add(new PolarPatterns(1, 20, 10, 0, 0, 0, 200, new Vector2(translate(300), 0), 15)); }
+            if (time == 1625) { patternList.Add(new PolarPatterns(1, 20, 10, 0, 5, 0, 200, new Vector2(translate(300), 0), 15)); }
+            if (time == 1650) { patternList.Add(new PolarPatterns(1, 20, 10, 0, 0, 0, 200, new Vector2(translate(300), 0), 15)); }
+            if (time == 1675) { patternList.Add(new PolarPatterns(1, 20, 10, 0, 5, 0, 200, new Vector2(translate(300), 0), 15)); }
 
             time++;
             return EState.PlayState;
         }
+
+        private float translate(float coordinate) { return coordinate + 480; }
     }
 }
