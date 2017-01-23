@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Media;
 using System.Numerics;
 
 namespace reimagined_lampu
@@ -19,12 +20,15 @@ namespace reimagined_lampu
         private List<Patterns> patternList;
         private BigInteger time;
         private Texture2D overlay;
+        private Song bg;
 
         public PlayState(ContentManager Content)
         {
             LoadContent(Content);
             GameStuff.Instance.player = new Player(Content.Load<Texture2D>("player"), new Vector2(600, 350), 3.5f);
             patternList = new List<Patterns>();
+            MediaPlayer.IsRepeating = true;
+            MediaPlayer.Play(bg);
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -49,6 +53,7 @@ namespace reimagined_lampu
             GameStuff.Instance.score = 0;
             GameStuff.Instance.bulletTexture01 = Content.Load<Texture2D>("bullets/Bullet1");
             GameStuff.Instance.bulletTexture02 = Content.Load<Texture2D>("bullets/Bullet2");
+            bg = Content.Load<Song>("bg");
         }
 
         public EState Update(GameTime gameTime)
