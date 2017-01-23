@@ -39,6 +39,7 @@ namespace reimagined_lampu
         private float angle;
         Vector2 position = new Vector2();
 
+        private bool alive = true;
         //constructor
         public PolarBullet(int bulletType, float bulletSpeed, float bulletAngleChange, float bulletAcceleration, Vector2 bulletCentrePosition, float bulletStartAngle)
         {
@@ -51,7 +52,7 @@ namespace reimagined_lampu
             centrePosition = bulletCentrePosition;
             radius = 0;
             angle = bulletStartAngle;
-           
+            
             //bullet type settings
             switch (type)
             {
@@ -75,11 +76,19 @@ namespace reimagined_lampu
             angle += angleChange/100f;
             speed += acceleration/100f;
             Maths.toCartesian(ref position, centrePosition, angle, radius);
+            Rectangle hitbox = new Rectangle((int) position.X + 5, (int) position.Y + 5, (int) (texture.Width*grScale*GameStuff.Instance.grScale - 5), (int) (texture.Height*grScale* GameStuff.Instance.grScale - 5));
+
+            if (GameStuff.Instance.player.checkHit(hitbox) == true) {GameStuff.Instance.player.applyDamage(5); alive = false; }
         }
 
         public Vector2 getPosition()
         {
             return position;
+        }
+
+        public bool getAlive()
+        {
+            return alive;
         }
 
         //draw
