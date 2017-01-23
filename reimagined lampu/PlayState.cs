@@ -44,7 +44,7 @@ namespace reimagined_lampu
 
         public void LoadContent(ContentManager Content)
         {
-            time = 0;
+            time = 3300;
             overlay = Content.Load<Texture2D>("overlay");
             GameStuff.Instance.score = 0;
             GameStuff.Instance.bulletTexture01 = Content.Load<Texture2D>("bullets/Bullet1");
@@ -101,38 +101,50 @@ namespace reimagined_lampu
             if (time == 2330) { patternList.Add(new PolarPatterns(1, 36, 0, 300, -10, 0, 50, new Vector2(translate(250), 0))); }
             if (time == 2360) { patternList.Add(new PolarPatterns(0, 36, 0, 300, -10, 0, 50, new Vector2(translate(300), 0))); }
 
-            if (time == 2600) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 200, new Vector2(translate(-300), 0))); }
-            if (time == 2600) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 200, new Vector2(translate(300), 500))); }
-            if (time == 2625) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 200, new Vector2(translate(-300), 0))); }
-            if (time == 2625) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 200, new Vector2(translate(300), 500))); }
-            if (time == 2650) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 200, new Vector2(translate(-300), 0))); }
-            if (time == 2650) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 200, new Vector2(translate(300), 500))); }
-            if (time == 2675) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 200, new Vector2(translate(-300), 0))); }
-            if (time == 2675) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 200, new Vector2(translate(300), 500))); }
-            if (time == 2700) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 200, new Vector2(translate(-300), 0))); }
-            if (time == 2700) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 200, new Vector2(translate(300), 500))); }
-            if (time == 2725) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 200, new Vector2(translate(-300), 0))); }
-            if (time == 2725) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 200, new Vector2(translate(300), 500))); }
-            if (time == 2750) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 200, new Vector2(translate(-300), 0))); }
-            if (time == 2750) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 200, new Vector2(translate(300), 500))); }
-            if (time == 2775) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 200, new Vector2(translate(-300), 0))); }
-            if (time == 2775) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 200, new Vector2(translate(300), 500))); }
-            if (time == 2800) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 200, new Vector2(translate(-300), 0))); }
-            if (time == 2800) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 200, new Vector2(translate(300), 500))); }
-            if (time == 2825) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 200, new Vector2(translate(-300), 0))); }
-            if (time == 2825) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 200, new Vector2(translate(300), 500))); }
-            if (time == 2850) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 200, new Vector2(translate(-300), 0))); }
-            if (time == 2850) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 200, new Vector2(translate(300), 500))); }
-            if (time == 2875) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 200, new Vector2(translate(-300), 0))); }
-            if (time == 2875) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 200, new Vector2(translate(300), 500))); }
-            if (time == 2900) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 200, new Vector2(translate(-300), 0))); }
-            if (time == 2900) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 200, new Vector2(translate(300), 500))); }
-            if (time == 2925) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 200, new Vector2(translate(-300), 0))); }
-            if (time == 2925) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 200, new Vector2(translate(300), 500))); }
-            if (time == 2950) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 200, new Vector2(translate(-300), 0))); }
-            if (time == 2950) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 200, new Vector2(translate(300), 500))); }
-            if (time == 2975) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 200, new Vector2(translate(-300), 0))); }
-            if (time == 2975) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 200, new Vector2(translate(300), 500))); }
+            if (time == 2600) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 250, new Vector2(translate(-300), 0))); }
+            if (time == 2600) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 250, new Vector2(translate(300), 500))); }
+            if (time == 2625) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 250, new Vector2(translate(-300), 0))); }
+            if (time == 2625) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 250, new Vector2(translate(300), 500))); }
+            if (time == 2650) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 250, new Vector2(translate(-300), 0))); }
+            if (time == 2650) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 250, new Vector2(translate(300), 500))); }
+            if (time == 2675) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 250, new Vector2(translate(-300), 0))); }
+            if (time == 2675) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 250, new Vector2(translate(300), 500))); }
+            if (time == 2700) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 250, new Vector2(translate(-300), 0))); }
+            if (time == 2700) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 250, new Vector2(translate(300), 500))); }
+            if (time == 2725) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 250, new Vector2(translate(-300), 0))); }
+            if (time == 2725) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 250, new Vector2(translate(300), 500))); }
+            if (time == 2750) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 250, new Vector2(translate(-300), 0))); }
+            if (time == 2750) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 250, new Vector2(translate(300), 500))); }
+            if (time == 2775) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 250, new Vector2(translate(-300), 0))); }
+            if (time == 2775) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 250, new Vector2(translate(300), 500))); }
+            if (time == 2800) { patternList.Add(new PolarPatterns(1, 30, 0, 0, 0, 15, 250, new Vector2(translate(-300), 0))); }
+
+            if (time == 3000) { patternList.Add(new PolarPatterns(0, 36, 0, 300, -10, 0, 100, new Vector2(translate(75), 0))); }
+            if (time == 3000) { patternList.Add(new PolarPatterns(1, 36, 0, 250, -10, 0, 100, new Vector2(translate(75), 0))); }
+            if (time == 3025) { patternList.Add(new PolarPatterns(0, 36, 0, 300, -10, 0, 100, new Vector2(translate(-75), 0))); }
+            if (time == 3025) { patternList.Add(new PolarPatterns(1, 36, 0, 250, -10, 0, 100, new Vector2(translate(-75), 0))); }
+            if (time == 3050) { patternList.Add(new PolarPatterns(0, 36, 0, 300, -10, 0, 100, new Vector2(translate(75), 0))); }
+            if (time == 3050) { patternList.Add(new PolarPatterns(1, 36, 0, 250, -10, 0, 100, new Vector2(translate(75), 0))); }
+            if (time == 3075) { patternList.Add(new PolarPatterns(0, 36, 0, 300, -10, 0, 100, new Vector2(translate(-75), 0))); }
+            if (time == 3075) { patternList.Add(new PolarPatterns(1, 36, 0, 250, -10, 0, 100, new Vector2(translate(-75), 0))); }
+            if (time == 3100) { patternList.Add(new PolarPatterns(0, 36, 0, 300, -10, 0, 100, new Vector2(translate(75), 0))); }
+            if (time == 3100) { patternList.Add(new PolarPatterns(1, 36, 0, 250, -10, 0, 100, new Vector2(translate(75), 0))); }
+            if (time == 3125) { patternList.Add(new PolarPatterns(0, 36, 0, 300, -10, 0, 100, new Vector2(translate(-75), 0))); }
+            if (time == 3125) { patternList.Add(new PolarPatterns(1, 36, 0, 250, -10, 0, 100, new Vector2(translate(-75), 0))); }
+            if (time == 3150) { patternList.Add(new PolarPatterns(0, 36, 0, 300, -10, 0, 100, new Vector2(translate(75), 0))); }
+            if (time == 3150) { patternList.Add(new PolarPatterns(1, 36, 0, 250, -10, 0, 100, new Vector2(translate(75), 0))); }
+            if (time == 3175) { patternList.Add(new PolarPatterns(0, 36, 0, 300, -10, 0, 100, new Vector2(translate(-75), 0))); }
+            if (time == 3175) { patternList.Add(new PolarPatterns(1, 36, 0, 250, -10, 0, 100, new Vector2(translate(-75), 0))); }
+            if (time == 3200) { patternList.Add(new PolarPatterns(0, 36, 0, 300, -10, 0, 100, new Vector2(translate(75), 0))); }
+            if (time == 3200) { patternList.Add(new PolarPatterns(1, 36, 0, 250, -10, 0, 100, new Vector2(translate(75), 0))); }
+
+            if (time == 3400)
+            {
+                for (int i = 0; i < 20; i++)
+                {
+                    patternList.Add(new PolarPatterns(0, 1, 0, 0, 70, 0, 200, new Vector2(translate(-500 + i*50), 0)));
+                }
+            }
 
             time++;
             return EState.PlayState;
