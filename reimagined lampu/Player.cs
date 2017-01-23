@@ -8,6 +8,7 @@ namespace reimagined_lampu
     {
         Texture2D texture;  //Texture of the Player
         Vector2 position;   //Position of the Player
+        Rectangle hitbox;
         float speed;        //Movementspeed
         float health;       //Playerhealth
         int death;          //deathcounter
@@ -27,6 +28,7 @@ namespace reimagined_lampu
             health = 100;
             death = 0;
             scale = 0.12f;
+            hitbox = new Rectangle((int)position.X, (int)position.Y, (int)(texture.Width * scale * GameStuff.Instance.grScale), (int)(texture.Height * scale * GameStuff.Instance.grScale));
         }
 
         /// <summary>
@@ -77,8 +79,8 @@ namespace reimagined_lampu
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(texture: texture,position: position,scale: new Vector2((scale * GameStuff.Instance.grScale),(scale * GameStuff.Instance.grScale)),color: Color.White);
-            spriteBatch.DrawString(GameStuff.Instance.arial,"" + position.X,new Vector2(500,20),Color.White);
-            spriteBatch.DrawString(GameStuff.Instance.arial, "" + position.Y, new Vector2(500, 35), Color.White);
+            //spriteBatch.DrawString(GameStuff.Instance.arial,"" + position.X,new Vector2(500,20),Color.White);
+            //spriteBatch.DrawString(GameStuff.Instance.arial, "" + position.Y, new Vector2(500, 35), Color.White);
         }
 
         /// <summary>
@@ -121,6 +123,16 @@ namespace reimagined_lampu
         public void setPosition(Vector2 position)
         {
             this.position = position;
+        }
+
+        public bool checkHit(Rectangle ObjectHitRectangle)
+        {
+            if (((ObjectHitRectangle.X+ObjectHitRectangle.Width)>= hitbox.X) && (ObjectHitRectangle.X <= (hitbox.X+hitbox.Width)) && ((ObjectHitRectangle.Y + ObjectHitRectangle.Height) >= hitbox.Y) &&
+                (ObjectHitRectangle.Y <= (hitbox.Y + hitbox.Height)))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
