@@ -28,7 +28,7 @@ namespace reimagined_lampu
             GameStuff.Instance.player = new Player(Content.Load<Texture2D>("player"), new Vector2(600, 350), 3.5f);
             patternList = new List<Patterns>();
             MediaPlayer.IsRepeating = true;
-            MediaPlayer.Volume = 0.5f;
+            MediaPlayer.Volume = 0.01f;
             MediaPlayer.Play(bg);
         }
 
@@ -43,7 +43,7 @@ namespace reimagined_lampu
             spriteBatch.Draw(texture: overlay, position: new Vector2(0, 0), scale: new Vector2(GameStuff.Instance.grScale, GameStuff.Instance.grScale), color: Color.White);
             spriteBatch.DrawString(GameStuff.Instance.arial, "Score: " + GameStuff.Instance.score, new Vector2(900, 120), Color.White);
             spriteBatch.DrawString(GameStuff.Instance.arial, "Health: " + GameStuff.Instance.player.getHealth(), new Vector2(900, 200), Color.White);
-            spriteBatch.DrawString(GameStuff.Instance.arial, "Time: " + time.ToString(), new Vector2(900, 280), Color.White);
+            //spriteBatch.DrawString(GameStuff.Instance.arial, "Time: " + time.ToString(), new Vector2(900, 280), Color.White);
 
         }
 
