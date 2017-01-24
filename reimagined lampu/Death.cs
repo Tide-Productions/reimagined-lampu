@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 
 namespace reimagined_lampu
 {
@@ -33,10 +34,12 @@ namespace reimagined_lampu
 
         public EState Update(GameTime gameTime)
         {
+            MediaPlayer.Stop();
             if (Keyboard.GetState().IsKeyDown(Keys.Enter))
             {
                 GameStuff.Instance.mainMenu.reset();
                 GameStuff.setGameState(EState.MainMenu);
+                GameStuff.playmmbg();
             }
             return EState.Death;
         }

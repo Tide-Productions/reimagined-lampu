@@ -34,7 +34,7 @@ namespace reimagined_lampu
             options = new Button(active: buttonActive, inactive: buttonInactive, hover: buttonHover, position: new Vector2(500, 290), text: "Options", textPosition: new Vector2(90, 40), state: BtnState.inactive, visibility: true, toolTip: "This feature isn't important, is it?");
             returnToMain = new Button(active: buttonActive, inactive: buttonInactive, hover: buttonHover, position: new Vector2(500, 450), text: "Main Menu", textPosition: new Vector2(80, 40), state: BtnState.active, visibility: true);
             exit = new Button(active: buttonActive, inactive: buttonInactive, hover: buttonHover, position: new Vector2(500, 550), text: "EXIT", textPosition: new Vector2(100, 40), state: BtnState.active, visibility: true);
-            retry = new reimagined_lampu.Button(active: buttonActive, inactive: buttonInactive, hover: buttonHover, position: new Vector2(500, 190), text: "Retry", textPosition: new Vector2(90, 40), state: BtnState.active, visibility: true);
+            retry = new Button(active: buttonActive, inactive: buttonInactive, hover: buttonHover, position: new Vector2(500, 190), text: "Retry", textPosition: new Vector2(90, 40), state: BtnState.active, visibility: true);
         }
         public void Draw(SpriteBatch spriteBatch)
         {

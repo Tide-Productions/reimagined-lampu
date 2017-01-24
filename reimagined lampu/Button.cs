@@ -103,7 +103,7 @@ namespace reimagined_lampu
         public bool Check(MouseState mouseState)
         {
             if (visibility) {
-                if (mouseState.X >= position.X && mouseState.X <= (position.X + active.Width) && mouseState.Y >= position.Y && mouseState.Y <= (position.Y + active.Height))
+                if (mouseState.X+16 >= position.X && mouseState.X+16 <= (position.X + active.Width) && mouseState.Y >= position.Y && mouseState.Y <= (position.Y + active.Height))
                 {
                     drawToolTip = true;
                     if (current == BtnState.active || current == BtnState.hover)
