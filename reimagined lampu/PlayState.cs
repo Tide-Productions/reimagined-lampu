@@ -25,7 +25,7 @@ namespace reimagined_lampu
         public PlayState(ContentManager Content)
         {
             LoadContent(Content);
-            GameStuff.Instance.player = new Player(Content.Load<Texture2D>("player"), new Vector2(600, 350), 3.5f);
+            GameStuff.Instance.player = new Player(Content.Load<Texture2D>("player"), new Vector2(translate(0), 500), 3.5f);
             patternList = new List<Patterns>();
             MediaPlayer.IsRepeating = true;
             MediaPlayer.Volume = 0.01f;
