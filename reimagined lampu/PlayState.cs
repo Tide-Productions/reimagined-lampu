@@ -49,7 +49,7 @@ namespace reimagined_lampu
 
         public void LoadContent(ContentManager Content)
         {
-            time = 3300;
+            time = 0;
             overlay = Content.Load<Texture2D>("overlay");
             GameStuff.Instance.score = 0;
             GameStuff.Instance.bulletTexture01 = Content.Load<Texture2D>("bullets/Bullet1");
@@ -144,11 +144,32 @@ namespace reimagined_lampu
             if (time == 3200) { patternList.Add(new PolarPatterns(0, 36, 0, 300, -10, 0, 100, new Vector2(translate(75), 0))); }
             if (time == 3200) { patternList.Add(new PolarPatterns(1, 36, 0, 250, -10, 0, 100, new Vector2(translate(75), 0))); }
 
-            if (time == 3400)
+            if (time == 3300)
             {
                 for (int i = 0; i < 20; i++)
                 {
-                    patternList.Add(new PolarPatterns(0, 1, 0, 0, 70, 0, 200, new Vector2(translate(-500 + i*50), 0)));
+                    patternList.Add(new PolarPatterns(0, 1, 0, 0, 70, 0, 300, new Vector2(translate(-500 + i*60), -(i % 2) * 20)));
+                }
+            }
+            if (time == 3340)
+            {
+                for (int i = 0; i < 20; i++)
+                {
+                    patternList.Add(new PolarPatterns(0, 1, 0, 0, 110, 0, 300, new Vector2(translate(-500 + i * 60), -(i % 2) * 20)));
+                }
+            }
+            if (time == 3380)
+            {
+                for (int i = 0; i < 20; i++)
+                {
+                    patternList.Add(new PolarPatterns(0, 1, 0, 0, 70, 0, 300, new Vector2(translate(-500 + i * 60), -(i % 2) * 20)));
+                }
+            }
+            if (time == 3420)
+            {
+                for (int i = 0; i < 20; i++)
+                {
+                    patternList.Add(new PolarPatterns(0, 1, 0, 0, 110, 0, 300, new Vector2(translate(-500 + i * 60), -(i % 2) * 20)));
                 }
             }
 

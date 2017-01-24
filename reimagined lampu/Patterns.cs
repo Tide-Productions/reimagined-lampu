@@ -86,7 +86,7 @@ namespace reimagined_lampu
             //update the pattern
             for (int i = Pattern.Count - 1; i >= 0; i--)
             {
-                if (Pattern[i].getPosition().X > 800 || Pattern[i].getPosition().X < -100 || Pattern[i].getPosition().Y > 800 || Pattern[i].getPosition().Y < -100)
+                if (Pattern[i].getPosition().X > 1000 || Pattern[i].getPosition().X < -100 || Pattern[i].getPosition().Y > 800 || Pattern[i].getPosition().Y < -100)
                 {
                     Pattern.RemoveAt(i);
                 }
