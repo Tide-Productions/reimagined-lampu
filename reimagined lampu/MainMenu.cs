@@ -120,6 +120,11 @@ namespace reimagined_lampu
             if (exit.Check(mouseState))
                 Environment.Exit(0);
 
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
+            {
+                GameStuff.Instance.mainMenu.reset();
+            }
+
             return EState.MainMenu;
         }
 
