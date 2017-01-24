@@ -84,7 +84,7 @@ namespace reimagined_lampu
         protected override void Update(GameTime gameTime)
         {
             //Debug-Stuff
-            if (Keyboard.GetState().IsKeyDown(Keys.K)) GameStuff.setGameState(EState.Death);
+            //if (Keyboard.GetState().IsKeyDown(Keys.K)) GameStuff.setGameState(EState.Death);
 
 
             // TODO: Add your update logic here
