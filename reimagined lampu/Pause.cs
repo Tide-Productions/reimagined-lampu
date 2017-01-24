@@ -25,14 +25,16 @@ namespace reimagined_lampu
         Button exit;
         Button returnToMain;
         Button options;
+        Button retry;
 
         public Pause(ContentManager Content)
         {
             LoadContent(Content);
             returnToGame = new Button(active: buttonActive, inactive: buttonInactive, hover: buttonHover, position: new Vector2(500, 90), text: "Continue", textPosition: new Vector2(85, 40), state: BtnState.active, visibility: true);
-            options = new Button(active: buttonActive, inactive: buttonInactive, hover: buttonHover, position: new Vector2(500, 250), text: "Options", textPosition: new Vector2(90, 40), state: BtnState.inactive, visibility: true, toolTip: "This feature isn't important, is it?");
+            options = new Button(active: buttonActive, inactive: buttonInactive, hover: buttonHover, position: new Vector2(500, 290), text: "Options", textPosition: new Vector2(90, 40), state: BtnState.inactive, visibility: true, toolTip: "This feature isn't important, is it?");
             returnToMain = new Button(active: buttonActive, inactive: buttonInactive, hover: buttonHover, position: new Vector2(500, 450), text: "Main Menu", textPosition: new Vector2(80, 40), state: BtnState.active, visibility: true);
             exit = new Button(active: buttonActive, inactive: buttonInactive, hover: buttonHover, position: new Vector2(500, 550), text: "EXIT", textPosition: new Vector2(100, 40), state: BtnState.active, visibility: true);
+            retry = new reimagined_lampu.Button(active: buttonActive, inactive: buttonInactive, hover: buttonHover, position: new Vector2(500, 190), text: "Retry", textPosition: new Vector2(90, 40), state: BtnState.active, visibility: true);
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -41,6 +43,7 @@ namespace reimagined_lampu
             options.Draw(spriteBatch);
             returnToMain.Draw(spriteBatch);
             exit.Draw(spriteBatch);
+            retry.Draw(spriteBatch);
             spriteBatch.Draw(cursorTexture, cursorPos, Color.White);
         }
 
@@ -66,12 +69,16 @@ namespace reimagined_lampu
             if (returnToMain.Check(mouseState))
             {
                 GameStuff.Instance.currentState = EState.MainMenu;
+                GameStuff.playmmbg();
             }
             if (exit.Check(mouseState))
             {
                 Environment.Exit(0);
             }
-
+            if (retry.Check(mouseState))
+            {
+                GameStuff.setGameState(EState.PlayState);
+            }
             return EState.Pause;
         }
 

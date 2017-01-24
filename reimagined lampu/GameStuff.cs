@@ -29,6 +29,7 @@ namespace reimagined_lampu
         public Pause pause;
         public Death death;
         public ulong score;
+        public Song mmgb;
 
         public GameStuff()
         {
@@ -103,6 +104,12 @@ namespace reimagined_lampu
                 instance.pause.reset();
                 instance.currentState = EState.Pause;
             }
+        }
+        public static void playmmbg()
+        {
+            MediaPlayer.IsRepeating = true;
+            MediaPlayer.Volume = 0.5f;
+            MediaPlayer.Play(Instance.mmgb);
         }
     }
 }
