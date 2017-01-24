@@ -70,10 +70,10 @@ namespace reimagined_lampu
             if (time == 100) { patternList.Add(new PolarPatterns(0, 20, 10, 0, -10, 0, 200, new Vector2(translate(-300), 0), 10)); }
             if (time == 125) { patternList.Add(new PolarPatterns(0, 20, 10, 0, 0, 0, 200, new Vector2(translate(300), 0), 10)); }
 
-            if (time == 675) { patternList.Add(new PolarPatterns(1, 40, 10, -320, -10, 0.5f, 800, new Vector2(translate(-300), 0), 5)); }
-            if (time == 750) { patternList.Add(new PolarPatterns(1, 40, 10, -320, -7.5f, 0.5f, 800, new Vector2(translate(-300), 0), 5)); }
-            if (time == 825) { patternList.Add(new PolarPatterns(1, 40, 10, -320, -10, 0.5f, 900, new Vector2(translate(300), 0), 5)); }
-            if (time == 900) { patternList.Add(new PolarPatterns(1, 40, 10, -320, -7.5f, 0.5f, 900, new Vector2(translate(300), 0), 5)); }
+            if (time == 675) { patternList.Add(new PolarPatterns(1, 40, 10, -300, -10, 0.5f, 800, new Vector2(translate(-300), 0), 5)); }
+            if (time == 750) { patternList.Add(new PolarPatterns(1, 40, 10, -300, -7.5f, 0.5f, 800, new Vector2(translate(-300), 0), 5)); }
+            if (time == 825) { patternList.Add(new PolarPatterns(1, 40, 10, -300, -10, 0.5f, 900, new Vector2(translate(300), 0), 5)); }
+            if (time == 900) { patternList.Add(new PolarPatterns(1, 40, 10, -300, -7.5f, 0.5f, 900, new Vector2(translate(300), 0), 5)); }
 
             if (time == 1300) { patternList.Add(new PolarPatterns(0, 20, 10, 0, -10, 0, 200, new Vector2(translate(-300), 0), 15)); }
             if (time == 1325) { patternList.Add(new PolarPatterns(0, 20, 10, 0, -5, 0, 200, new Vector2(translate(-300), 0), 15)); }
@@ -173,7 +173,57 @@ namespace reimagined_lampu
                 }
             }
 
+            if (time == 3550)
+            {
+                for (int i = 0; i < 80; i++)
+                {
+                    if (i < 15 || i > 17) patternList.Add(new PolarPatterns(1, 1, 0, 0, 70, 0, 350, new Vector2(translate(-500 + i * 25), -(i % 2) * 5)));
+                }
+            }
+            if (time == 3600)
+            {
+                for (int i = 0; i < 80; i++)
+                {
+                    if (i < 8 || i > 10) patternList.Add(new PolarPatterns(1, 1, 0, 0, 70, 0, 350, new Vector2(translate(-500 + i * 25), -(i % 2) * 5)));
+                }
+            }
+            if (time == 3650)
+            {
+                for (int i = 0; i < 80; i++)
+                {
+                    if (i < 15 || i > 17) patternList.Add(new PolarPatterns(1, 1, 0, 0, 70, 0, 350, new Vector2(translate(-500 + i * 25), -(i % 2) * 5)));
+                }
+            }
+            if (time == 3700)
+            {
+                for (int i = 0; i < 80; i++)
+                {
+                    if (i < 6 || i > 8) patternList.Add(new PolarPatterns(1, 1, 0, 0, 70, 0, 350, new Vector2(translate(-500 + i * 25), -(i % 2) * 5)));
+                }
+            }
+
+            if (time == 3805) { patternList.Add(new PolarPatterns(0, 50, 10, 0, 0, 30, 500, new Vector2(translate(0), -25), 10)); }
+            if (time == 3800) { patternList.Add(new PolarPatterns(1, 50, 10, 0, 15, 30, 500, new Vector2(translate(0), -25), 10)); }
+            if (time == 3805) { patternList.Add(new PolarPatterns(0, 50, 10, 0, 40, 30, 500, new Vector2(translate(0), -25), 10)); }
+            if (time == 3800) { patternList.Add(new PolarPatterns(1, 50, 10, 0, 55, 30, 500, new Vector2(translate(0), -25), 10)); }
+            if (time == 3805) { patternList.Add(new PolarPatterns(0, 50, 10, 0, 80, 30, 500, new Vector2(translate(0), -25), 10)); }
+            if (time == 3800) { patternList.Add(new PolarPatterns(1, 50, 10, 0, 95, 30, 500, new Vector2(translate(0), -25), 10)); }
+            if (time == 3805) { patternList.Add(new PolarPatterns(0, 50, 10, 0, 120, 30, 500, new Vector2(translate(0), -25), 10)); }
+            if (time == 3800) { patternList.Add(new PolarPatterns(1, 50, 10, 0, 135, 30, 500, new Vector2(translate(0), -25), 10)); }
+            if (time == 3805) { patternList.Add(new PolarPatterns(0, 50, 10, 0, 160, 30, 500, new Vector2(translate(0), -25), 10)); }
+            if (time == 3800) { patternList.Add(new PolarPatterns(1, 50, 10, 0, 175, 30, 500, new Vector2(translate(0), -25), 10)); }
+            if (time == 3805) { patternList.Add(new PolarPatterns(0, 50, 10, 0, 200, 30, 500, new Vector2(translate(0), -25), 10)); }
+            if (time == 3800) { patternList.Add(new PolarPatterns(1, 50, 10, 0, 215, 30, 500, new Vector2(translate(0), -25), 10)); }
+            if (time == 3805) { patternList.Add(new PolarPatterns(0, 50, 10, 0, 240, 30, 500, new Vector2(translate(0), -25), 10)); }
+            if (time == 3800) { patternList.Add(new PolarPatterns(1, 50, 10, 0, 255, 30, 500, new Vector2(translate(0), -25), 10)); }
+            if (time == 3805) { patternList.Add(new PolarPatterns(0, 50, 10, 0, 280, 30, 500, new Vector2(translate(0), -25), 10)); }
+            if (time == 3800) { patternList.Add(new PolarPatterns(1, 50, 10, 0, 295, 30, 500, new Vector2(translate(0), -25), 10)); }
+            if (time == 3805) { patternList.Add(new PolarPatterns(0, 50, 10, 0, 320, 30, 500, new Vector2(translate(0), -25), 10)); }
+            if (time == 3800) { patternList.Add(new PolarPatterns(1, 50, 10, 0, 335, 30, 500, new Vector2(translate(0), -25), 10)); }
+
             time++;
+            if (time == 4500) time = 1200;
+
             return EState.PlayState;
         }
 
