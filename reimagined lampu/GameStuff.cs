@@ -108,7 +108,7 @@ namespace reimagined_lampu
         public static void playmmbg()
         {
             MediaPlayer.IsRepeating = true;
-            MediaPlayer.Volume = 0.01f;
+            MediaPlayer.Volume = 0.4f;
             MediaPlayer.Play(Instance.mmgb);
         }
     }

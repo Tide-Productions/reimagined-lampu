@@ -72,7 +72,7 @@ namespace reimagined_lampu
             exit.Draw(spriteBatch);
             if (drawAbout)
             {
-                spriteBatch.DrawString(GameStuff.Instance.arial, "This Game is still WIP \n\n Dev-Version, only availible for selected VIPs \n\n F11 - Fullscreen", new Vector2(370, 130), Color.White);
+                spriteBatch.DrawString(GameStuff.Instance.arial, "This Game is still WIP \n\n Dev-Version, only available for selected VIPs \n\n F11 - Fullscreen", new Vector2(370, 130), Color.White);
             }
             
             spriteBatch.Draw(cursorTexture, cursorPos, Color.White);
