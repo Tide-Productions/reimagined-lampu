@@ -24,7 +24,7 @@ namespace reimagined_lampu
         {
             spriteBatch.Draw(texture: background, position: new Vector2(0), scale: new Vector2(GameStuff.Instance.grScale), color: Color.White);
             spriteBatch.DrawString(GameStuff.Instance.arial, "You have died...", new Vector2(30), Color.White);
-            spriteBatch.DrawString(GameStuff.Instance.arial, "Press Enter ...", new Vector2(30, 620), Color.White);
+            spriteBatch.DrawString(GameStuff.Instance.arial, "Press Enter/Space ...", new Vector2(30, 620), Color.White);
         }
 
         public void LoadContent(ContentManager Content)
@@ -35,7 +35,7 @@ namespace reimagined_lampu
         public EState Update(GameTime gameTime)
         {
             MediaPlayer.Stop();
-            if (Keyboard.GetState().IsKeyDown(Keys.Enter))
+            if (Keyboard.GetState().IsKeyDown(Keys.Enter) || Keyboard.GetState().IsKeyDown(Keys.Space))
             {
                 GameStuff.Instance.mainMenu.reset();
                 GameStuff.setGameState(EState.MainMenu);
