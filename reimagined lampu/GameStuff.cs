@@ -37,11 +37,7 @@ namespace reimagined_lampu
         }
         public static GameStuff Instance
         {
-            get
-            {
-                if (instance == null) instance = new GameStuff();
-                return instance;
-            }
+            get { return instance ?? (instance = new GameStuff()); }
             set
             {
 

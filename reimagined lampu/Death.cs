@@ -35,12 +35,11 @@ namespace reimagined_lampu
         public EState Update(GameTime gameTime)
         {
             MediaPlayer.Stop();
-            if (Keyboard.GetState().IsKeyDown(Keys.Enter) || Keyboard.GetState().IsKeyDown(Keys.Space))
-            {
-                GameStuff.Instance.mainMenu.reset();
-                GameStuff.setGameState(EState.MainMenu);
-                GameStuff.playmmbg();
-            }
+            if (!Keyboard.GetState().IsKeyDown(Keys.Enter) && !Keyboard.GetState().IsKeyDown(Keys.Space))
+                return EState.Death;
+            GameStuff.Instance.mainMenu.reset();
+            GameStuff.setGameState(EState.MainMenu);
+            GameStuff.playmmbg();
             return EState.Death;
         }
     }

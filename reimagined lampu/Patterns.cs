@@ -55,7 +55,7 @@ namespace reimagined_lampu
             this.angleChangeOB = angleChangeOB;
             this.startSpeedOB = startSpeedOB;
             interval = intervalOS;
-            angleChangeOS = 360 / n;
+            angleChangeOS = 360.0f / n;
             angle = startAngleOS;
         }
 
@@ -74,7 +74,7 @@ namespace reimagined_lampu
             {
 
                 //create n new bullets at once
-                for (int i = 0; i < n; i++)
+                for (var i = 0; i < n; i++)
                 {
 
                     Pattern.Add(new PolarBullet(typeOB, startSpeedOB, angleChangeOB, accelerationOB, spawnPosition, angle + i * angleChangeOS));
@@ -84,12 +84,12 @@ namespace reimagined_lampu
             }
 
             //update the pattern
-            for (int i = Pattern.Count - 1; i >= 0; i--)
+            for (var i = Pattern.Count - 1; i >= 0; i--)
             {
                 if (Pattern[i].getPosition().X > 1000 || Pattern[i].getPosition().X < -100 || Pattern[i].getPosition().Y > 700 || Pattern[i].getPosition().Y < -100)
                 {
                     if (Pattern[i].getPosition().Y >= 370) GameStuff.Instance.score += 10;
-                    Pattern.RemoveAt(i);
+                    //Pattern.RemoveAt(i);
                 }
                 else if (Pattern[i].getAlive() == false) { Pattern.RemoveAt(i); }
                 else { Pattern[i].Update(); }
@@ -101,7 +101,8 @@ namespace reimagined_lampu
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            foreach (PolarBullet i in Pattern)
+            List<PolarBullet> work = Pattern.Where(p => p.alive).ToList();
+            foreach (var i in work)
             {
                 i.Draw(spriteBatch);
             }

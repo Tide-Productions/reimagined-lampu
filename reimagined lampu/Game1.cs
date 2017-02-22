@@ -21,9 +21,11 @@ namespace reimagined_lampu
 
         public Game1()
         {
-            graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 1280;
-            graphics.PreferredBackBufferHeight = 720;
+            graphics = new GraphicsDeviceManager(this)
+            {
+                PreferredBackBufferWidth = 1280,
+                PreferredBackBufferHeight = 720
+            };
             Content.RootDirectory = "Content";
         }
 
@@ -86,8 +88,6 @@ namespace reimagined_lampu
             //Debug-Stuff
             //if (Keyboard.GetState().IsKeyDown(Keys.K)) GameStuff.setGameState(EState.Death);
 
-
-            // TODO: Add your update logic here
 
             if (Keyboard.GetState().IsKeyDown(Keys.F11) && releasedFsT)
             {
