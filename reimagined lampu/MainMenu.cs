@@ -37,7 +37,6 @@ namespace reimagined_lampu
         /// Make a new MainMenu
         /// </summary>
         /// <param name="Content">ContentManager of the Game. Used to load Content</param>
-        /// <param name="toSplash">Set if MainMenu should start on Splash Screen</param>
         public MainMenu(ContentManager Content)
         {
             onSplash = true;
@@ -70,7 +69,7 @@ namespace reimagined_lampu
             exit.Draw(spriteBatch);
             if (drawAbout)
             {
-                spriteBatch.DrawString(GameStuff.Instance.arial, "This Game is still WIP \n\n Dev-Version, only available for selected VIPs \n\n F11 - Fullscreen", new Vector2(370, 130), Color.White);
+                spriteBatch.DrawString(GameStuff.Instance.arial, "This Game is still WIP \n\n\n\n Your hitbox is the green circle \n\n\n\n F11 - Fullscreen", new Vector2(370, 130), Color.White);
             }
             
             spriteBatch.Draw(cursorTexture, cursorPos, Color.White);
@@ -80,10 +79,7 @@ namespace reimagined_lampu
         {
             splashScreen = Content.Load<Texture2D>("Splash");
             choice = Content.Load<Texture2D>("Menu");
-            if (onSplash)
-                background = splashScreen;
-            else
-                background = choice;
+            background = onSplash ? splashScreen : choice;
 
             buttonActive = Content.Load<Texture2D>("Button_idle");
             buttonInactive = Content.Load<Texture2D>("Button_pressed");

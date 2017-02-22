@@ -27,6 +27,7 @@ namespace reimagined_lampu
                 PreferredBackBufferHeight = 720
             };
             Content.RootDirectory = "Content";
+            this.Window.Title = "Galaxy Quest - BoE";
         }
 
         /// <summary>

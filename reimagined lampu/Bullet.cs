@@ -67,8 +67,6 @@ namespace reimagined_lampu
                     texture = GameStuff.Instance.bulletTexture02;
                     color = Color.White;
                     break;
-                default:
-                    break;
             }
         }
 
