@@ -18,7 +18,7 @@ namespace reimagined_lampu
         /// <param name="spawnPosition">Rotationszentrum</param>
         /// <param name="angle">Winkel</param>
         /// <param name="radius">Radius</param>
-        public static void toCartesian(ref Vector2 position, Vector2 spawnPosition, double angle, double radius)
+        public static void toCartesian(out Vector2 position, Vector2 spawnPosition, double angle, double radius)
         {
             angle = ((angle * Math.PI) / 180);
             position.X = Convert.ToSingle(radius * Math.Cos(angle)) + spawnPosition.X;

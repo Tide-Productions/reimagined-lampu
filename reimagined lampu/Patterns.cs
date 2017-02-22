@@ -61,7 +61,7 @@ namespace reimagined_lampu
 
         public override void Update()
         {
-
+            #region Create Pattern
             //initalize the pattern
             if ((interval != 0) && (timer % interval == 0) && (counter <= n))
             {
@@ -82,18 +82,27 @@ namespace reimagined_lampu
                 }
 
             }
+            #endregion
+
+            #region Update Pattern
 
             //update the pattern
-            for (var i = Pattern.Count - 1; i >= 0; i--)
+            Pattern = Pattern.Where(p => p.alive).ToList();
+            foreach (var p in Pattern)
             {
-                if (Pattern[i].getPosition().X > 1000 || Pattern[i].getPosition().X < -100 || Pattern[i].getPosition().Y > 700 || Pattern[i].getPosition().Y < -100)
+                if (p.position.X > 1000 || p.position.X < -100 ||
+                    p.position.Y > 700 || p.position.Y < -100)
                 {
-                    if (Pattern[i].getPosition().Y >= 370) GameStuff.Instance.score += 10;
-                    //Pattern.RemoveAt(i);
+                    if (p.position.Y >= 370) GameStuff.Instance.score += 3;
+                    p.alive = false;
                 }
-                else if (Pattern[i].getAlive() == false) { Pattern.RemoveAt(i); }
-                else { Pattern[i].Update(); }
+                else
+                {
+                    p.Update();
+                }
+
             }
+            #endregion
 
             //tick counter
             timer++;
@@ -101,8 +110,8 @@ namespace reimagined_lampu
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            List<PolarBullet> work = Pattern.Where(p => p.alive).ToList();
-            foreach (var i in work)
+            //List<PolarBullet> work = Pattern.Where(p => p.alive).ToList();
+            foreach (var i in Pattern.Where(p => p.alive))
             {
                 i.Draw(spriteBatch);
             }

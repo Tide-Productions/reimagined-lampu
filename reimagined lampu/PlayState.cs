@@ -62,7 +62,7 @@ namespace reimagined_lampu
 
             GameStuff.Instance.player.Update();
 
-            foreach (Patterns p in patternList)
+            foreach (var p in patternList)
             {
                 p.Update();
             }
