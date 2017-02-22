@@ -79,9 +79,9 @@ namespace reimagined_lampu
             angle += angleChange/100f;
             speed += acceleration/100f;
             Maths.toCartesian(out _position, centrePosition, angle, radius);
-            Rectangle hitbox = new Rectangle((int) position.X + 5, (int) position.Y + 5, (int) (texture.Width*grScale*GameStuff.Instance.grScale - 5), (int) (texture.Height*grScale* GameStuff.Instance.grScale - 5));
-
-            if (GameStuff.Instance.player.checkHit(hitbox) != true) return;
+            var rad = (texture.Width * grScale * GameStuff.Instance.grScale) / 2;
+            var hitbox = new Circle(this.position.X + rad, this.position.Y + rad, rad);
+            if (!GameStuff.Instance.player.checkHit(hitbox)) return;
             GameStuff.Instance.player.applyDamage(5); alive = false;
         }
 

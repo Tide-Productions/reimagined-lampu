@@ -8,7 +8,7 @@ namespace reimagined_lampu
     {
         Texture2D texture;  //Texture of the Player
         Vector2 position;   //Position of the Player
-        Rectangle hitbox;
+        Circle hitbox;
         float speed;        //Movementspeed
         float health;       //Playerhealth
         int death;          //deathcounter
@@ -28,7 +28,8 @@ namespace reimagined_lampu
             health = 100;
             death = 0;
             scale = 0.12f;
-            hitbox = new Rectangle((int)position.X + 20 , (int)position.Y + 24, 8, 8);
+
+            hitbox = new Circle(new Vector2(position.X + 22, position.Y + 24), 3.0f);
         }
 
         /// <summary>
@@ -63,9 +64,7 @@ namespace reimagined_lampu
                 move.Y = 0;
             }
 
-            hitbox.X = (int)position.X + 20;
-            hitbox.Y = (int)position.Y + 20;
-
+            hitbox.Move(move);
 
             //Bewegung ausführen
             position += move;
@@ -126,14 +125,9 @@ namespace reimagined_lampu
             this.position = position;
         }
 
-        public bool checkHit(Rectangle ObjectHitRectangle)
+        public bool checkHit(Circle objectHitbox)
         {
-            if (((ObjectHitRectangle.X+ObjectHitRectangle.Width)>= hitbox.X) && (ObjectHitRectangle.X <= (hitbox.X+hitbox.Width)) && ((ObjectHitRectangle.Y + ObjectHitRectangle.Height) >= hitbox.Y) &&
-                (ObjectHitRectangle.Y <= (hitbox.Y + hitbox.Height)))
-            {
-                return true;
-            }
-            return false;
+            return hitbox.IntersectsWith(objectHitbox);
         }
     }
 }
