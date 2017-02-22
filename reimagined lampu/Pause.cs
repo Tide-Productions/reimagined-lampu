@@ -69,7 +69,6 @@ namespace reimagined_lampu
             if (returnToMain.Check(mouseState))
             {
                 GameStuff.Instance.currentState = EState.MainMenu;
-                GameStuff.playmmbg();
             }
             if (exit.Check(mouseState))
             {

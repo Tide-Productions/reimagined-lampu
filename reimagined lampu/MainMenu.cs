@@ -7,7 +7,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
 
 namespace reimagined_lampu
 {
@@ -55,7 +54,6 @@ namespace reimagined_lampu
             about = new Button(active: buttonActive, inactive: buttonInactive, hover: buttonHover, position: new Vector2(950, 250), text: "About", textPosition: new Vector2(100, 40), state: BtnState.active, visibility: false, toolTip: "You want to now more?");
             exit = new Button(active: buttonActive, inactive: buttonInactive, hover: buttonHover, position: new Vector2(950, 550), text: "EXIT", textPosition: new Vector2(100, 40), state: BtnState.active, visibility: false, toolTip: "Already leaving? :C");
             drawAbout = false;
-            GameStuff.playmmbg();
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -91,7 +89,6 @@ namespace reimagined_lampu
             buttonInactive = Content.Load<Texture2D>("Button_pressed");
             buttonHover = Content.Load<Texture2D>("Button_hover");
             cursorTexture = Content.Load<Texture2D>("cursor");
-            GameStuff.Instance.mmgb = Content.Load<Song>("mm");
         }
 
         public EState Update(GameTime gameTime)
@@ -106,7 +103,6 @@ namespace reimagined_lampu
 
             if (stageOne.Check(mouseState))
             {
-                MediaPlayer.Stop();
                 GameStuff.setGameState(EState.PlayState);
             }
             stageTwo.Check(mouseState);

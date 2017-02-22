@@ -39,7 +39,6 @@ namespace reimagined_lampu
                 return EState.Death;
             GameStuff.Instance.mainMenu.reset();
             GameStuff.setGameState(EState.MainMenu);
-            GameStuff.playmmbg();
             return EState.Death;
         }
     }
